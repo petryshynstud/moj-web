@@ -14,12 +14,13 @@
       <div class="nav-links">
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="matching-hub.html">Matching Hub</a>
-        <a class="nav-link is-active" href="moj-profil.html">Môj profil</a>
         <a class="nav-link" href="chat.html">Chat</a>
       </div>
       <div class="nav-actions">
-        <button class="icon-button search-button" type="button" aria-label="Vyhľadávanie"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="m16 16 4 4"></path></svg></button>
-        <a class="profile-button" id="nav-profile-btn" href="registracia.html"><span class="profile-icon" aria-hidden="true">♙</span> Registrácia</a>
+        <a href="prihlasenie.html" id="nav-login-btn" class="login-link">Prihlásenie</a>
+        <a href="registracia.html" id="nav-register-btn" class="btn btn-primary">Registrácia</a>
+        <a href="moj-profil.html" id="nav-profile-btn" class="btn btn-primary" style="display: none;">Môj profil</a>
+        <a href="#" id="nav-logout-btn" class="login-link" style="display: none;">Odhlásiť sa</a>
       </div>
       <button class="menu-button icon-button" type="button" aria-label="Otvoriť menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </nav>
@@ -28,27 +29,27 @@
   <main class="profile-page">
     <div class="profile-main container">
       <section class="profile-heading" aria-labelledby="profile-title">
-        <div><p class="eyebrow">MÔJ PROFIL</p><h1 id="profile-title">Martina Kováčová</h1><p class="profile-meta"><span>◉ Bratislava, Slovensko</span><span>✓ Overený profil</span></p></div>
+        <div><p class="eyebrow">MÔJ PROFIL</p><h1 id="profile-name-display"></h1><p class="profile-meta"><span id="profile-location">Lokalita zatiaľ nie je uvedená</span><span id="profile-email">E-mail zatiaľ nie je uvedený</span></p></div>
         <button class="button button-primary message-button" type="button">▣ &nbsp; Napísať správu</button>
       </section>
 
       <section class="profile-dashboard" aria-label="Informácie o profile">
         <div>
-          <article class="profile-card-panel profile-about"><div class="profile-photo" role="img" aria-label="Profilová fotografia Martiny Kováčovej"><span>MK</span></div><div><h2>Ahoj, som Martina</h2><p>Frontend vývojárka · 24 výmen</p><p class="about-copy">Rada premieňam nápady na funkčné digitálne produkty. Vo voľnom čase učím, objavujem nové nástroje a hľadám ľudí, s ktorými sa môžeme navzájom posúvať.</p></div><button class="icon-button profile-edit" type="button" aria-label="Upraviť profil">↗</button></article>
+          <article class="profile-card-panel profile-about"><div class="profile-photo" id="profile-photo" role="img" aria-label="Profilová fotografia používateľa"><span>SM</span></div><div><h2 id="profile-greeting"></h2><p id="profile-role">Členka SkillMatch</p><p class="about-copy" id="profile-bio"></p></div><button class="button button-secondary profile-edit" id="profile-edit-button" type="button" hidden>Upraviť profil</button></article>
           <div class="profile-offerings">
-            <article class="profile-card-panel offering-card"><h2>Čo ponúkam</h2><p>Zručnosti, ktoré rada odovzdávam</p><ul class="offering-list"><li>React a TypeScript</li><li>Tvorba webov</li><li>Mentoring pre juniorov</li></ul></article>
-            <article class="profile-card-panel offering-card"><h2>Čo hľadám</h2><p>Na čom chcem pracovať ďalej</p><ul class="offering-list looking-list"><li>UX výskum</li><li>Produktový dizajn</li><li>Angličtina</li></ul></article>
+            <article class="profile-card-panel offering-card"><h2>Čo ponúkam</h2><p>Zručnosti, ktoré rada odovzdávam</p><ul class="offering-list" id="profile-offer-list"><li>Údaje sa načítajú po registrácii</li></ul></article>
+            <article class="profile-card-panel offering-card"><h2>Čo hľadám</h2><p>Na čom chcem pracovať ďalej</p><ul class="offering-list looking-list" id="profile-looking-list"><li>Údaje sa načítajú po registrácii</li></ul></article>
           </div>
         </div>
-        <aside class="portfolio-card"><p class="eyebrow">PORTFÓLIO</p><h2>Pozrime sa na moju prácu.</h2><p>Projekty, poznámky a dizajnové experimenty na jednom mieste.</p><div class="portfolio-links"><a class="portfolio-link" href="#github"><span class="portfolio-icon">◈</span><strong>GitHub</strong><small>github.com/martinak...</small><span>×</span></a><a class="portfolio-link" href="#figma"><span class="portfolio-icon">◩</span><strong>Figma</strong><small>figma.com/martinak</small><span>×</span></a><a class="portfolio-link" href="#linkedin"><span class="portfolio-icon">in</span><strong>LinkedIn</strong><small>linkedin.com/in/martina-k</small><span>×</span></a></div></aside>
+        <aside class="portfolio-card"><p class="eyebrow">PORTFÓLIO</p><h2>Pozrime sa na moju prácu.</h2><p>Projekty, poznámky a dizajnové experimenty na jednom mieste.</p><div class="portfolio-links"><a class="portfolio-link" id="link-github" href="#"><span class="portfolio-icon">◈</span><strong>GitHub</strong><small>Pridaj GitHub</small><span>×</span></a><a class="portfolio-link" id="link-figma" href="#"><span class="portfolio-icon">◩</span><strong>Figma</strong><small>Pridaj Figmu</small><span>×</span></a><a class="portfolio-link" id="link-linkedin" href="#"><span class="portfolio-icon">in</span><strong>LinkedIn</strong><small>Pridaj LinkedIn</small><span>×</span></a></div><div class="social-edit-fields" id="social-edit-fields" hidden></div></aside>
       </section>
 
       <section class="profile-lower">
-        <article class="profile-card-panel activity-card"><div class="profile-section-top"><div><p class="eyebrow">AKTIVITA</p><h2>Prehľad výmen</h2></div><span class="section-tool">▦</span></div><div class="calendar"><div class="calendar-title"><button type="button" aria-label="Predchádzajúci mesiac">‹</button><strong>Jun 2024</strong><button type="button" aria-label="Nasledujúci mesiac">›</button></div><div class="calendar-grid"><span class="weekday">PO</span><span class="weekday">UT</span><span class="weekday">ST</span><span class="weekday">ŠT</span><span class="weekday">PI</span><span class="weekday">SO</span><span class="weekday">NE</span><span class="day">27</span><span class="day">28</span><span class="day">29</span><span class="day">30</span><span class="day">31</span><span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day selected">6</span><span class="day">7</span><span class="day">8</span><span class="day">10</span><span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span><span class="day">16</span><span class="day">17</span><span class="day">18</span><span class="day">19</span><span class="day">20</span><span class="day">21</span><span class="day">22</span><span class="day">23</span><span class="day">24</span><span class="day">25</span><span class="day">26</span><span class="day">27</span><span class="day">28</span><span class="day">29</span><span class="day">30</span></div><div class="calendar-legend"><span>Naplánované výmeny</span><span>Dokončené výmeny</span></div></div></article>
-        <article class="profile-card-panel feedback-card"><div class="profile-section-top"><div><p class="eyebrow">SPÄTNÁ VÄZBA</p><h2>Recenzie</h2></div><div class="feedback-rating">★ <span>4.9</span></div></div><div class="feedback-list"><div class="feedback-item"><div class="feedback-author"><span><i class="avatar avatar-blue">TV</i> Tomáš Varga <small>pred 3 týždňami</small></span><b class="feedback-stars">★★★★★</b></div><p>„Martina je skvelá mentorka. Zložité veci vysvetľuje jednoducho a s veľkou trpezlivosťou.“</p></div><div class="feedback-item"><div class="feedback-author"><span><i class="avatar avatar-lilac">EK</i> Ema Kováčová <small>pred mesiacom</small></span><b class="feedback-stars">★★★★★</b></div><p>„Výmena bola príjemná, praktická a odchádzala som s jasným plánom na ďalší projekt.“</p></div></div></article>
+        <article class="profile-card-panel activity-card"><div class="profile-section-top"><div><p class="eyebrow">AKTIVITA</p><h2>Prehľad výmen</h2></div></div><p class="empty-state">Tvoj kalendár výmen momentálne spí zimným spánkom 🐻‍❄️. Rýchlo si niekoho nájdi v Matching Hube, kým tu nenarastú pavučiny!</p></article>
+        <article class="profile-card-panel feedback-card"><div class="profile-section-top"><div><p class="eyebrow">SPÄTNÁ VÄZBA</p><h2>Recenzie</h2></div></div><p class="empty-state">Zatiaľ tu vládne ticho... 🦗 Ešte nemáš žiadne recenzie. Dohodni si prvú výmenu, ohúr ich svojimi znalosťami a získaj prvých 5 hviezdičiek!</p></article>
       </section>
 
-      <section class="profile-card-panel history-card"><div class="profile-section-top"><div><p class="eyebrow">HISTÓRIA</p><h2>Moje výmeny</h2></div><a class="history-link" href="#historia">Zobraziť všetky →</a></div><div class="history-list"><div class="history-row"><div>React pre začiatočníkov<small>s Petrom Novákom · 12. jún 2024</small></div><span class="history-status">Dokončené</span></div><div class="history-row"><div>Základy UX výskumu<small>s Simonou Kováčovou · 28. máj 2024</small></div><span class="history-status">Dokončené</span></div><div class="history-row"><div>Komponenty v Tailwind<small>s Tomášom Vargom · 18. jún 2024</small></div><span class="history-status pending">Naplánované</span></div></div></section>
+      <section class="profile-card-panel history-card"><div class="profile-section-top"><div><p class="eyebrow">HISTÓRIA</p><h2>Moje výmeny</h2></div></div><p class="empty-state">Tvoj kalendár výmen momentálne spí zimným spánkom 🐻‍❄️. Rýchlo si niekoho nájdi v Matching Hube, kým tu nenarastú pavučiny!</p></section>
     </div>
   </main>
 

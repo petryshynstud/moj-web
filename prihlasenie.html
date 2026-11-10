@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="sk">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Prihlásenie do komunity SkillMatch.">
+	<title>Prihlásenie — SkillMatch</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+	<header class="site-header">
+		<nav class="navigation container" aria-label="Hlavná navigácia">
+			<a class="brand" href="index.html" aria-label="SkillMatch, úvodná stránka"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a>
+			<div class="nav-links">
+				<a class="nav-link" href="index.html">Home</a>
+				<a class="nav-link" href="matching-hub.html">Matching Hub</a>
+				<a class="nav-link" href="chat.html">Chat</a>
+			</div>
+			<div class="nav-actions">
+				<a href="prihlasenie.html" id="nav-login-btn" class="login-link" style="display: none;">Prihlásenie</a>
+				<a href="registracia.html" id="nav-register-btn" class="btn btn-primary">Registrácia</a>
+				<a href="moj-profil.html" id="nav-profile-btn" class="btn btn-primary" style="display: none;">Môj profil</a>
+				<a href="#" id="nav-logout-btn" class="login-link" style="display: none;">Odhlásiť sa</a>
+			</div>
+			<button class="menu-button icon-button" type="button" aria-label="Otvoriť menu" aria-expanded="false"><span></span><span></span><span></span></button>
+		</nav>
+	</header>
+
+	<main class="registration-page">
+		<section class="registration-card" aria-labelledby="login-title">
+			<div class="registration-heading">
+				<p class="eyebrow">VÍTAJ SPÄŤ</p>
+				<h1 id="login-title">Vitaj späť</h1>
+				<p>Prihlás sa a pokračuj vo výmene zručností.</p>
+			</div>
+			<form class="registration-form" id="login-form">
+				<div class="registration-field"><label for="login-email">E-mail</label><input id="login-email" name="email" type="email" autocomplete="email" required></div>
+				<div class="registration-field"><label for="login-password">Heslo</label><input id="login-password" name="password" type="password" autocomplete="current-password" required></div>
+				<button class="button button-primary registration-submit" type="submit">Prihlásiť sa</button>
+			</form>
+		</section>
+	</main>
+
+	<footer class="matching-footer"><div class="matching-footer-inner container"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a><div class="footer-links"><a href="index.html">Home</a><a href="#kontakt">Kontakt</a><a href="#pravidla">Pravidlá</a></div></div></footer>
+	<div class="toast" role="status" aria-live="polite"></div>
+	<script src="script.js"></script>
+</body>
+</html>
