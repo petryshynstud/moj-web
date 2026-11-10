@@ -35,6 +35,7 @@ function updateNavigation() {
 
 document.addEventListener('DOMContentLoaded', () => {
   updateNavigation();
+  initializeDashboard();
 
   document.querySelector('#nav-logout-btn')?.addEventListener('click', (event) => {
     event.preventDefault();
@@ -48,6 +49,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initializeProfile();
 });
+
+function initializeDashboard() {
+  const landingView = document.querySelector('#landing-view');
+  const dashboardView = document.querySelector('#dashboard-view');
+  if (!landingView || !dashboardView) return;
+
+  const user = getStoredUser();
+  const isLoggedIn = user?.isLoggedIn === true;
+  landingView.style.display = isLoggedIn ? 'none' : '';
+  dashboardView.style.display = isLoggedIn ? 'block' : 'none';
+
+  if (isLoggedIn) {
+    const welcome = document.querySelector('#dashboard-welcome');
+    const displayName = getDisplayName(user);
+    if (welcome) welcome.textContent = displayName ? `Vitaj späť, ${displayName}!` : 'Vitaj späť!';
+  }
+}
 
 const registrationForm = document.querySelector('#registration-form');
 const loginForm = document.querySelector('#login-form');
