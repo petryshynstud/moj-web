@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="sk">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Chat na platforme SkillMatch.">
+	<title>Chat — SkillMatch</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body class="chat-body">
+	<header class="site-header">
+		<nav class="navigation container" aria-label="Hlavná navigácia">
+			<a class="brand" href="index.html" aria-label="SkillMatch, úvodná stránka"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a>
+			<div class="nav-links">
+				<a class="nav-link" href="index.html">Home</a>
+				<a class="nav-link" href="matching-hub.html">Matching Hub</a>
+				<a class="nav-link" href="moj-profil.html">Môj profil</a>
+				<a class="nav-link is-active" href="chat.html">Chat</a>
+			</div>
+			<div class="nav-actions">
+				<button class="icon-button search-button" type="button" aria-label="Vyhľadávanie"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="m16 16 4 4"></path></svg></button>
+				<a class="profile-button" href="moj-profil.html"><span class="profile-icon" aria-hidden="true">♙</span> Môj profil</a>
+			</div>
+			<button class="menu-button icon-button" type="button" aria-label="Otvoriť menu" aria-expanded="false"><span></span><span></span><span></span></button>
+		</nav>
+	</header>
+
+	<main class="chat-page">
+		<div class="chat-main container">
+			<section class="chat-heading" aria-labelledby="chat-title">
+				<div><p class="eyebrow">KOMUNIKÁCIA</p><h1 id="chat-title">Chat</h1><p>Spojte sa s ľuďmi, ktorí vám pomôžu posunúť projekt ďalej.</p></div>
+				<span class="active-contacts"><i></i> 3 aktívne kontakty</span>
+			</section>
+
+			<section class="chat-shell" aria-label="Správy">
+				<aside class="conversation-panel" aria-label="Zoznam konverzácií">
+					<div class="conversation-heading"><div><h2>Konverzácie</h2><p>Vaše posledné správy</p></div><button class="icon-button" type="button" aria-label="Nastavenia konverzácií">⌘</button></div>
+					<p class="conversation-label">AKTÍVNE CHATY</p>
+					<div class="conversation-list">
+						<button class="conversation is-muted" type="button" data-name="Jakub (Python/AI)" data-avatar="JB"><span class="avatar avatar-dark">JB</span><span class="conversation-copy"><strong>Jakub (Python/AI)</strong><small>Jasné, pozrieme sa na to ...</small></span><time>10:42</time></button>
+						<button class="conversation is-selected" type="button" data-name="Lucia (UX dizajn)" data-avatar="LU"><span class="avatar avatar-lucia">LU<i></i></span><span class="conversation-copy"><strong>Lucia (UX dizajn)</strong><small>Pošlem ti návrh ešte dnes.</small></span><time>včera</time></button>
+						<button class="conversation" type="button" data-name="Martin (Marketing)" data-avatar="MN"><span class="avatar avatar-dark">MN</span><span class="conversation-copy"><strong>Martin (Marketing)</strong><small>Ďakujem za spätnú väzbu!</small></span><time>Po 16:20</time></button>
+						<button class="conversation" type="button" data-name="Petra (Copywriting)" data-avatar="PK"><span class="avatar avatar-petra">PK</span><span class="conversation-copy"><strong>Petra (Copywriting)</strong><small>To znie výborne, dohodnuté.</small></span><time>Ne 09:12</time></button>
+					</div>
+				</aside>
+
+				<section class="message-panel" aria-label="Konverzácia s Luciou">
+					<header class="message-header"><span class="avatar avatar-lucia">LU<i></i></span><div><h2>Lucia (UX dizajn)</h2><p><i></i> Online teraz</p></div><button class="icon-button" type="button" aria-label="Ďalšie možnosti">⋮</button></header>
+					<div class="message-history">
+						<span class="message-date">Dnes</span>
+						<div class="message received">Ahoj Lucia tu ešte nie je dostupná v tomto náhľade.<time>09:08</time></div>
+					</div>
+					<form class="message-composer">
+						<button class="icon-button attachment-button" type="button" aria-label="Priložiť súbor">⌕</button>
+						<input type="text" placeholder="Napíšte správu..." aria-label="Napíšte správu...">
+						<button class="icon-button emoji-button" type="button" aria-label="Pridať emoji">☻</button>
+						<button class="send-button" type="submit" aria-label="Odoslať správu">➤</button>
+					</form>
+					<p class="composer-note">Správa bude odoslaná okamžite</p>
+				</section>
+			</section>
+		</div>
+	</main>
+	<div class="toast" role="status" aria-live="polite"></div>
+	<script src="script.js"></script>
+</body>
+</html>

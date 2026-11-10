@@ -71,3 +71,34 @@ sortSelect?.addEventListener('change', () => {
 document.querySelectorAll('.exchange-button').forEach((button) => {
   button.addEventListener('click', () => showToast('Žiadosť o výmenu bola pripravená.'));
 });
+
+const composer = document.querySelector('.message-composer');
+const messageInput = composer?.querySelector('input');
+const messageHistory = document.querySelector('.message-history');
+const conversations = [...document.querySelectorAll('.conversation')];
+
+conversations.forEach((conversation) => {
+  conversation.addEventListener('click', () => {
+    conversations.forEach((item) => item.classList.remove('is-selected'));
+    conversation.classList.add('is-selected');
+    const messageTitle = document.querySelector('.message-header h2');
+    const messagePanel = document.querySelector('.message-panel');
+    if (messageTitle) messageTitle.textContent = conversation.dataset.name;
+    if (messagePanel) messagePanel.setAttribute('aria-label', `Konverzácia s ${conversation.dataset.name}`);
+  });
+});
+
+composer?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const messageText = messageInput.value.trim();
+  if (!messageText) return;
+  const message = document.createElement('div');
+  message.className = 'message sent';
+  message.textContent = messageText;
+  const time = document.createElement('time');
+  time.textContent = 'teraz';
+  message.append(time);
+  messageHistory.append(message);
+  messageInput.value = '';
+  messageHistory.scrollTop = messageHistory.scrollHeight;
+});
