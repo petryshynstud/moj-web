@@ -1,3 +1,33 @@
+const usersDB = [
+  {
+    id: 'jakub',
+    meno: 'Jakub',
+    rola: 'Študent IT & AI',
+    lokalita: 'Bratislava',
+    bio: 'Zaujímam sa o programovanie a AI. Chcem sa zlepšovať v programovaní, ale potrebujem viac praktických skúseností.',
+    potreby: 'Hľadám niekoho skúsenejšieho na praktické učenie a výmenu znalostí.',
+    linkedin: 'https://www.linkedin.com/in/kubgus/'
+  },
+  {
+    id: 'timea',
+    meno: 'Timea',
+    rola: 'Študentka IT',
+    lokalita: 'Bratislava',
+    bio: 'Venujem sa programovaniu, web developmentu a sieťam. Mám technické znalosti, ale chcela by som ich viac využiť v praxi.',
+    potreby: 'Hľadám projekty na precvičenie a nových ľudí na spoluprácu.',
+    linkedin: 'https://www.linkedin.com/in/timea-klopčeková-255539244/'
+  },
+  {
+    id: 'petr',
+    meno: 'Petr',
+    rola: 'Študent / UX & UI dizajnér',
+    lokalita: 'Slovensko',
+    bio: 'Venujem sa UX/UI dizajnu, webom a programovaniu. Mám skúsenosti s dizajnom, ale chcem sa naučiť ďalšie veci od ľudí z praxe.',
+    potreby: 'Hľadám spätnú väzbu na svoju prácu a možnosť učiť sa od ostatných.',
+    linkedin: 'https://www.linkedin.com/in/pbalabolkin/'
+  }
+];
+
 const toast = document.querySelector('.toast');
 let toastTimer;
 
@@ -36,6 +66,7 @@ function updateNavigation() {
 document.addEventListener('DOMContentLoaded', () => {
   updateNavigation();
   initializeDashboard();
+  initializePublicProfile();
 
   document.querySelector('#nav-logout-btn')?.addEventListener('click', (event) => {
     event.preventDefault();
@@ -65,6 +96,45 @@ function initializeDashboard() {
     const displayName = getDisplayName(user);
     if (welcome) welcome.textContent = displayName ? `Vitaj späť, ${displayName}!` : 'Vitaj späť!';
   }
+}
+
+function initializePublicProfile() {
+  const publicPage = document.querySelector('#public-profile-page');
+  if (!publicPage) return;
+
+  const profileId = new URLSearchParams(window.location.search).get('id');
+  const user = usersDB.find((item) => item.id === profileId);
+  if (!user) {
+    window.location.href = 'matching-hub.html';
+    return;
+  }
+
+  const name = document.querySelector('#public-profile-name');
+  const location = document.querySelector('#public-profile-location');
+  const role = document.querySelector('#public-profile-role');
+  const greeting = document.querySelector('#public-profile-greeting');
+  const roleSummary = document.querySelector('#public-profile-role-summary');
+  const summary = document.querySelector('#public-profile-summary');
+  const bio = document.querySelector('#public-profile-bio');
+  const needs = document.querySelector('#public-profile-needs');
+  const initials = document.querySelector('#public-profile-initials');
+
+  if (name) name.textContent = user.meno;
+  if (location) location.textContent = `◉ ${user.lokalita}`;
+  if (role) role.textContent = user.rola;
+  if (greeting) greeting.textContent = `Ahoj, som ${user.meno}`;
+  if (roleSummary) roleSummary.textContent = user.rola;
+  if (summary) summary.textContent = user.bio;
+  if (bio) bio.textContent = user.bio;
+  if (needs) needs.textContent = user.potreby;
+  if (initials) initials.textContent = user.meno.slice(0, 2).toUpperCase();
+
+  [['#public-link-github', user.github], ['#public-link-figma', user.figma], ['#public-link-linkedin', user.linkedin]].forEach(([selector, url]) => {
+    const link = document.querySelector(selector);
+    if (!link) return;
+    link.href = url || '#';
+    link.style.display = url ? '' : 'none';
+  });
 }
 
 const registrationForm = document.querySelector('#registration-form');

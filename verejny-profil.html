@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Verejný profil používateľa SkillMatch.">
+  <title>Verejný profil — SkillMatch</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navigation container" aria-label="Hlavná navigácia">
+      <a class="brand" href="index.html" aria-label="SkillMatch, úvodná stránka"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link is-active" href="matching-hub.html">Matching Hub</a>
+        <a class="nav-link" href="chat.html">Chat</a>
+      </div>
+      <div class="nav-actions">
+        <a href="prihlasenie.html" id="nav-login-btn" class="login-link">Prihlásenie</a>
+        <a href="registracia.html" id="nav-register-btn" class="btn btn-primary">Registrácia</a>
+        <a href="moj-profil.html" id="nav-profile-btn" class="btn btn-primary" style="display: none;">Môj profil</a>
+        <a href="#" id="nav-logout-btn" class="login-link" style="display: none;">Odhlásiť sa</a>
+      </div>
+      <button class="menu-button icon-button" type="button" aria-label="Otvoriť menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <main class="profile-page" id="public-profile-page">
+    <div class="profile-main container">
+      <section class="profile-heading" aria-labelledby="public-profile-name">
+        <div><p class="eyebrow">VEREJNÝ PROFIL</p><h1 id="public-profile-name"></h1><p class="profile-meta"><span id="public-profile-location"></span><span id="public-profile-role"></span></p></div>
+        <a class="button button-primary message-button" href="chat.html">▣ &nbsp; Napísať správu</a>
+      </section>
+
+      <section class="profile-dashboard" aria-label="Informácie o verejnom profile">
+        <div>
+          <article class="profile-card-panel profile-about"><div class="profile-photo" id="public-profile-photo" role="img" aria-label="Profilová fotografia používateľa"><span id="public-profile-initials"></span></div><div><h2 id="public-profile-greeting"></h2><p id="public-profile-role-summary"></p><p class="about-copy" id="public-profile-summary"></p></div></article>
+          <div class="profile-offerings">
+            <article class="profile-card-panel offering-card"><h2>Čo ponúkam</h2><p>Čo vie a rád zdieľa</p><p class="public-profile-copy" id="public-profile-bio"></p></article>
+            <article class="profile-card-panel offering-card"><h2>Čo hľadám</h2><p>Na čom chce pracovať</p><p class="public-profile-copy" id="public-profile-needs"></p></article>
+          </div>
+        </div>
+        <aside class="portfolio-card"><p class="eyebrow">PORTFÓLIO</p><h2>Pozrime sa na prácu.</h2><p>Odkazy a profily, kde môžeš spoznať jeho/jej tvorbu.</p><div class="portfolio-links"><a class="portfolio-link" id="public-link-github" href="#" style="display: none;"><span class="portfolio-icon">◈</span><strong>GitHub</strong><small>Otvoriť profil</small><span>×</span></a><a class="portfolio-link" id="public-link-figma" href="#" style="display: none;"><span class="portfolio-icon">◩</span><strong>Figma</strong><small>Otvoriť profil</small><span>×</span></a><a class="portfolio-link" id="public-link-linkedin" href="#" style="display: none;" target="_blank" rel="noreferrer"><span class="portfolio-icon">in</span><strong>LinkedIn</strong><small>Otvoriť profil</small><span>×</span></a></div></aside>
+      </section>
+
+      <section class="profile-lower">
+        <article class="profile-card-panel activity-card"><div class="profile-section-top"><div><p class="eyebrow">AKTIVITA</p><h2>Prehľad výmen</h2></div></div><p class="empty-state">Tvoj kalendár výmen momentálne spí zimným spánkom 🐻‍❄️. Rýchlo si niekoho nájdi v Matching Hube, kým tu nenarastú pavučiny!</p></article>
+        <article class="profile-card-panel feedback-card"><div class="profile-section-top"><div><p class="eyebrow">SPÄTNÁ VÄZBA</p><h2>Recenzie</h2></div></div><p class="empty-state">Zatiaľ tu vládne ticho... 🦗 Ešte nemá žiadne recenzie.</p></article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="matching-footer"><div class="matching-footer-inner container"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a><div class="footer-links"><a href="index.html">Home</a><a href="#kontakt">Kontakt</a><a href="#pravidla">Pravidlá</a></div></div></footer>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
