@@ -3,33 +3,93 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Moje portfólio — začiatok</title>
-  <!-- Vzhľad stránky je v samostatnom súbore styles.css (vrstva CSS) -->
+  <meta name="description" content="SkillMatch prepája ľudí, ktorí si chcú vymieňať zručnosti a skúsenosti.">
+  <title>SkillMatch — Vymieňaj si zručnosti</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header class="site-header">
+    <nav class="navigation container" aria-label="Hlavná navigácia">
+      <a class="brand" href="#uvod" aria-label="SkillMatch, úvodná stránka">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span></span>
+        <span>Skill<span>Match</span></span>
+      </a>
 
-  <main class="uvitanie">
-    <div class="emoji">👋</div>
-    <h1>Tu vznikne moje portfólio</h1>
-    <p class="podtext">
-      Toto je štartová stránka kurzu <strong>Tvorba webstránok</strong>.
-      Odteraz ju budeš meniť ty — s pomocou AI asistenta.
-    </p>
+      <div class="nav-links">
+        <a class="nav-link is-active" href="#uvod">Úvod</a>
+        <a class="nav-link" href="#matching-hub">Matching Hub</a>
+        <a class="nav-link" href="#chat">Chat</a>
+      </div>
 
-    <div class="karta">
-      <p class="karta-nadpis">Ako začať:</p>
-      <ol>
-        <li>Otvor <strong>Copilot Chat</strong> (ikona Copilota vpravo) — sem píšeš, čo chceš vytvoriť.</li>
-        <li>Tento súbor <code>index.html</code> si pozri v <strong>živom náhľade</strong>: pravý klik naň → <em>Show Preview</em>.</li>
-        <li>Choď na <strong>Blok 7</strong> kurzu a postupuj podľa neho.</li>
-      </ol>
-    </div>
+      <div class="nav-actions">
+        <button class="icon-button search-button" type="button" aria-label="Vyhľadávanie">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="m16 16 4 4"></path></svg>
+        </button>
+        <a class="profile-button" href="#ucet"><span class="profile-icon" aria-hidden="true">♙</span> Môj profil</a>
+      </div>
+      <button class="menu-button icon-button" type="button" aria-label="Otvoriť menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
 
-    <p class="poznamka">
-      Keď spravíš prvú zmenu, tento text pokojne zmaž — je len na úvod.
-    </p>
+  <main>
+    <section class="hero container" id="uvod">
+      <div class="hero-copy">
+        <p class="eyebrow intro-eyebrow"><span class="sparkle" aria-hidden="true">✦</span> Uč sa od ľudí okolo seba</p>
+        <h1>Skill<span>Match</span></h1>
+        <p class="hero-text">Spoj svoje znalosti s ľuďmi, ktorí ti môžu naučiť niečo nové. Zdieľaj skúsenosti nikým neobmedzené a jednoducho.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#ucet">Registrácia pripravená <span aria-hidden="true">→</span></a>
+          <a class="button button-secondary" href="#ako-to-funguje">Ako to funguje? <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Ukážka zhody používateľov">
+        <div class="blue-shape"></div>
+        <div class="floating-label label-top"><span class="online-dot"></span> 1 248 aktívnych ľudí</div>
+        <article class="match-card">
+          <div class="match-card-head">
+            <div class="avatar avatar-purple">MK</div>
+            <div><strong>Marek Krížik</strong><small>Python · fotograf</small></div>
+            <span class="match-score">94 % zhoda</span>
+          </div>
+          <p>Jednoduchá výmena skúseností a praktických zručností.</p>
+          <div class="match-card-foot"><span>● online</span><a href="#matching-hub">Zobraziť profil →</a></div>
+        </article>
+        <div class="floating-label label-bottom">+ 2 nové zhody</div>
+      </div>
+    </section>
+
+    <section class="how-it-works section-pale" id="ako-to-funguje">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">JEDNODUCHÝ ZAČIATOK</p><h2>Ako to funguje?</h2></div>
+          <p>Tri kroky k novým skúsenostiam, vzájomnému rastu a ľuďom, ktorí ti pomôžu zmeniť nápad na skutočnosť.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card"><div class="step-icon icon-people" aria-hidden="true">♧</div><span class="step-number">01</span><h3>Registrácia</h3><p>Vytvor si profil, predstav svoje zručnosti a povedz nám, čo sa chceš naučiť.</p><span class="card-arrow" aria-hidden="true">→</span></article>
+          <article class="step-card"><div class="step-icon icon-lamp" aria-hidden="true">♧</div><span class="step-number">02</span><h3>Nájdi experta</h3><p>Objav ľudí s podobnými záujmami, ktorí hľadajú to, čo vieš ty.</p><span class="card-arrow" aria-hidden="true">→</span></article>
+          <article class="step-card"><div class="step-icon icon-chat" aria-hidden="true">▢</div><span class="step-number">03</span><h3>Vymeň si znalosti</h3><p>Dohodni si stretnutie, zdieľaj skúsenosti a uč sa s prirodzenou ľahkosťou.</p><span class="card-arrow" aria-hidden="true">→</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews container" id="matching-hub">
+      <div class="reviews-heading"><div><p class="eyebrow">SLOVÁ NAŠEJ KOMUNITY</p><h2>Recenzie študentov</h2></div><div class="rating"><span>★★★★★</span> <small>4.9 / 5</small></div></div>
+      <div class="reviews-grid">
+        <article class="review-card"><div class="stars">★★★★★</div><p>Vďaka SkillMatch som našla mentora na UX a zároveň niekoho, komu môžem pomôcť s angličtinou.</p><div class="review-author"><span class="avatar avatar-blue">LK</span><span><strong>Lucia Kráľová</strong><small>Študentka dizajnu</small></span></div></article>
+        <article class="review-card"><div class="stars">★★★★★</div><p>Jednoduché, ľudské a naozaj užitočné. Za pár dní som si vymenil znalosti s niekým z môjho mesta.</p><div class="review-author"><span class="avatar avatar-yellow">MP</span><span><strong>Martin Pospíšil</strong><small>Junior vývojár</small></span></div></article>
+        <article class="review-card"><div class="stars">★★★★★</div><p>Najlepší spôsob, ako sa posunúť ďalej. Každé stretnutie mi prinieslo nový pohľad a novú energiu.</p><div class="review-author"><span class="avatar avatar-lilac">PM</span><span><strong>Petra Malá</strong><small>Marketingová špecialistka</small></span></div></article>
+      </div>
+    </section>
+
+    <section class="cta-band section-pale" id="chat">
+      <div class="cta container"><div><p class="eyebrow">TVOJ ĎALŠÍ KROK NA CESTE</p><h2>Každý vie niečo, čo ešte nie.</h2></div><a class="button button-light" href="#ucet">Začni teraz <span aria-hidden="true">→</span></a></div>
+    </section>
   </main>
 
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
 </body>
 </html>
