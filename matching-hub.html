@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="sk">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Nájdite ľudí, s ktorými si vymeníte vedomosti, skúsenosti a inšpiráciu.">
+	<title>Matching Hub — SkillMatch</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header class="site-header">
+		<nav class="navigation container" aria-label="Hlavná navigácia">
+			<a class="brand" href="index.html" aria-label="SkillMatch, úvodná stránka"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a>
+			<div class="nav-links">
+				<a class="nav-link" href="index.html">Home</a>
+				<a class="nav-link is-active" href="matching-hub.html">Matching Hub</a>
+				<a class="nav-link" href="#profil">Môj profil</a>
+				<a class="nav-link" href="#chat">Chat</a>
+			</div>
+			<div class="nav-actions">
+				<button class="icon-button search-button" type="button" aria-label="Vyhľadávanie"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="m16 16 4 4"></path></svg></button>
+				<a class="profile-button" href="#profil"><span class="profile-icon" aria-hidden="true">♙</span> Môj profil</a>
+			</div>
+			<button class="menu-button icon-button" type="button" aria-label="Otvoriť menu" aria-expanded="false"><span></span><span></span><span></span></button>
+		</nav>
+	</header>
+
+	<main class="matching-page">
+		<div class="matching-main container">
+			<section class="matching-intro" aria-labelledby="matching-title">
+				<div><p class="eyebrow intro-eyebrow">♧ OBJAVTE NOVÉ MOŽNOSTI</p><h1 id="matching-title">Matching Hub</h1><p>Nájdite ľudí, s ktorými si vymeníte vedomosti, skúsenosti a inšpiráciu.</p></div>
+				<div class="matching-count"><strong>6 aktívnych profilov</strong><span>Pripravených na výmenu dnes</span></div>
+			</section>
+
+			<div class="matching-tools">
+				<label class="matching-search" for="profile-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="m16 16 4 4"></path></svg><input id="profile-search" type="search" placeholder="Vyhľadávanie" aria-label="Vyhľadávanie profilov"></label>
+				<select class="sort-select" aria-label="Zoradenie profilov"><option>Zoradiť: Odporúčané</option><option>Zoradiť: Najnovšie</option><option>Zoradiť: Najlepšie hodnotené</option></select>
+			</div>
+
+			<div class="matching-layout">
+				<aside class="filter-panel" aria-label="Filtrovanie profilov">
+					<div class="filter-title"><span>⚱ Filtrovanie</span><button class="filter-reset" type="reset">Vyčistiť</button></div>
+					<fieldset class="filter-group"><h2>KATEGÓRIE</h2><label class="filter-option"><input type="checkbox" checked> Všetky zručnosti <em>6</em></label><label class="filter-option"><input type="checkbox"> Technológie <em>2</em></label><label class="filter-option"><input type="checkbox"> Dizajn <em>1</em></label><label class="filter-option"><input type="checkbox"> Marketing <em>1</em></label><label class="filter-option"><input type="checkbox"> Kreatíva <em>1</em></label><label class="filter-option"><input type="checkbox"> Biznis <em>1</em></label></fieldset>
+					<fieldset class="filter-group"><h2>ÚROVEŇ <span>Všetky</span></h2><div class="level-range"></div><div class="level-labels"><span>Začiatočník</span><span>Expert</span></div></fieldset>
+				</aside>
+
+				<section class="profiles" aria-labelledby="recommended-title">
+					<div class="profiles-heading"><div><h2 id="recommended-title">Odporúčané pre vás</h2><p>Ľudia s podobnými záujmami a doplňujúcimi sa zručnosťami</p></div><span class="verified">✓ Overené profily</span></div>
+					<div class="profile-grid">
+						<article class="profile-card" data-name="Lucia Kováčová" data-skills="UX/UI Dáta"><div class="profile-head"><span class="avatar profile-avatar avatar-purple">LK</span><div class="profile-name"><strong>Lucia Kováčová</strong><span>4.9 (12 hodnotení)</span></div><span class="category">TECHNOLÓGIE</span></div><div class="profile-rating">★ <small>4.9 (12)</small></div><p class="expertise-label">EXPERTÍZA</p><div class="skill-tags"><span class="skill-tag">4r. Technológie</span><span class="skill-tag">2r. Dáta</span></div><button class="exchange-button" type="button">⇄ &nbsp; Vymeň zručnosť</button></article>
+						<article class="profile-card" data-name="Martin Novák" data-skills="UX/UI Výskum"><div class="profile-head"><span class="avatar profile-avatar avatar-blue">MN</span><div class="profile-name"><strong>Martin Novák</strong><span>4.8 (8 hodnotení)</span></div><span class="category">DIZAJN</span></div><div class="profile-rating">★ <small>4.8 (8)</small></div><p class="expertise-label">EXPERTÍZA</p><div class="skill-tags"><span class="skill-tag">2r. UX/UI</span><span class="skill-tag">3r. Výskum</span></div><button class="exchange-button" type="button">⇄ &nbsp; Vymeň zručnosť</button></article>
+						<article class="profile-card" data-name="Sofia Horváthová" data-skills="Copywriting Branding"><div class="profile-head"><span class="avatar profile-avatar avatar-yellow">SH</span><div class="profile-name"><strong>Sofia Horváthová</strong><span>5.0 (15 hodnotení)</span></div><span class="category">MARKETING</span></div><div class="profile-rating">★ <small>5.0 (15)</small></div><p class="expertise-label">EXPERTÍZA</p><div class="skill-tags"><span class="skill-tag">5r. Copywriting</span><span class="skill-tag">3r. Branding</span></div><button class="exchange-button" type="button">⇄ &nbsp; Vymeň zručnosť</button></article>
+						<article class="profile-card" data-name="Jakub Bílek" data-skills="Javascript React"><div class="profile-head"><span class="avatar profile-avatar avatar-blue">JB</span><div class="profile-name"><strong>Jakub Bílek</strong><span>4.7 (2 hodnotenia)</span></div><span class="category">TECHNOLÓGIE</span></div><div class="profile-rating">★ <small>4.7 (2)</small></div><p class="expertise-label">EXPERTÍZA</p><div class="skill-tags"><span class="skill-tag">4r. Javascript</span><span class="skill-tag">3r. React</span></div><button class="exchange-button" type="button">⇄ &nbsp; Vymeň zručnosť</button></article>
+						<article class="profile-card" data-name="Elena Balážová" data-skills="Fotografia Video"><div class="profile-head"><span class="avatar profile-avatar avatar-lilac">EB</span><div class="profile-name"><strong>Elena Balážová</strong><span>4.9 (11 hodnotení)</span></div><span class="category">KREATÍVA</span></div><div class="profile-rating">★ <small>4.9 (11)</small></div><p class="expertise-label">EXPERTÍZA</p><div class="skill-tags"><span class="skill-tag">6r. Fotografia</span><span class="skill-tag">2r. Video</span></div><button class="exchange-button" type="button">⇄ &nbsp; Vymeň zručnosť</button></article>
+						<article class="profile-card" data-name="Peter Šimek" data-skills="Excel Financie"><div class="profile-head"><span class="avatar profile-avatar avatar-yellow">PŠ</span><div class="profile-name"><strong>Peter Šimek</strong><span>4.6 (7 hodnotení)</span></div><span class="category">BIZNIS</span></div><div class="profile-rating">★ <small>4.6 (7)</small></div><p class="expertise-label">EXPERTÍZA</p><div class="skill-tags"><span class="skill-tag">5r. Excel</span><span class="skill-tag">4r. Financie</span></div><button class="exchange-button" type="button">⇄ &nbsp; Vymeň zručnosť</button></article>
+					</div>
+				</section>
+			</div>
+		</div>
+	</main>
+
+	<footer class="matching-footer"><div class="matching-footer-inner container"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a><div class="footer-links"><a href="index.html">Home</a><a href="#kontakt">Kontakt</a><a href="#pravidla">Pravidlá</a></div></div></footer>
+	<div class="toast" role="status" aria-live="polite"></div>
+	<script src="script.js"></script>
+</body>
+</html>
