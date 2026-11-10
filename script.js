@@ -1,6 +1,27 @@
 const toast = document.querySelector('.toast');
 let toastTimer;
 
+document.addEventListener('DOMContentLoaded', () => {
+  const navProfileButton = document.querySelector('#nav-profile-btn');
+  const registeredUser = localStorage.getItem('skillmatch_user');
+
+  if (navProfileButton && registeredUser) {
+    navProfileButton.textContent = 'Môj profil';
+    navProfileButton.href = 'moj-profil.html';
+  }
+});
+
+const registrationForm = document.querySelector('#registration-form');
+
+registrationForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const name = registrationForm.querySelector('#registration-name').value.trim();
+
+  if (!name) return;
+  localStorage.setItem('skillmatch_user', name);
+  window.location.href = 'moj-profil.html';
+});
+
 function showToast(message) {
   toast.textContent = message;
   toast.classList.add('is-visible');
@@ -39,26 +60,30 @@ const sortSelect = document.querySelector('.sort-select');
 const filterReset = document.querySelector('.filter-reset');
 const filterChecks = [...document.querySelectorAll('.filter-option input')];
 
-function updateProfiles() {
-  const searchTerm = profileSearch.value.trim().toLowerCase();
-  const selectedCategories = filterChecks.filter((checkbox) => checkbox.checked).map((checkbox) => checkbox.parentElement.textContent.trim().split(/\s+/)[0].toLowerCase());
+if (profileSearch && profileCards.length) {
+  function updateProfiles() {
+    const searchTerm = profileSearch.value.trim().toLowerCase();
+    const selectedCategories = filterChecks
+      .slice(1)
+      .filter((checkbox) => checkbox.checked)
+      .map((checkbox) => checkbox.parentElement.textContent.trim().split(/\s+/)[0].toLowerCase());
 
-  profileCards.forEach((card) => {
-    const category = card.querySelector('.category').textContent.toLowerCase();
-    const searchableText = `${card.dataset.name} ${card.dataset.skills} ${category}`.toLowerCase();
-    const matchesSearch = !searchTerm || searchableText.includes(searchTerm);
-    const allSkillsChecked = filterChecks[0]?.checked;
-    const matchesCategory = allSkillsChecked || selectedCategories.some((selected) => category.includes(selected));
-    card.hidden = !(matchesSearch && matchesCategory);
+    profileCards.forEach((card) => {
+      const category = card.querySelector('.category')?.textContent.toLowerCase() || '';
+      const searchableText = `${card.dataset.name || ''} ${card.dataset.skills || ''} ${category}`.toLowerCase();
+      const matchesSearch = !searchTerm || searchableText.includes(searchTerm);
+      const matchesCategory = !selectedCategories.length || selectedCategories.some((selected) => searchableText.includes(selected));
+      card.hidden = !(matchesSearch && matchesCategory);
+    });
+  }
+
+  profileSearch.addEventListener('input', updateProfiles);
+  filterChecks.forEach((checkbox) => checkbox.addEventListener('change', updateProfiles));
+  filterReset?.addEventListener('click', () => {
+    filterChecks.forEach((checkbox, index) => { checkbox.checked = index === 0; });
+    updateProfiles();
   });
 }
-
-if (profileSearch) profileSearch.addEventListener('input', updateProfiles);
-filterChecks.forEach((checkbox) => checkbox.addEventListener('change', updateProfiles));
-filterReset?.addEventListener('click', () => {
-  filterChecks.forEach((checkbox, index) => { checkbox.checked = index === 0; });
-  updateProfiles();
-});
 
 sortSelect?.addEventListener('change', () => {
   const grid = document.querySelector('.profile-grid');

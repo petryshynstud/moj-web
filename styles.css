@@ -28,7 +28,8 @@ a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 
 .site-header { border-bottom: 1px solid var(--line); background: #fff; }
-.navigation { height: 58px; display: flex; align-items: center; gap: 42px; }
+.navigation { position: relative; height: 58px; display: flex; align-items: center; justify-content: center; }
+.navigation > .brand { position: absolute; left: 0; }
 .brand { display: inline-flex; align-items: center; gap: 6px; color: var(--blue); font-size: 13px; font-weight: 800; letter-spacing: -.4px; }
 .brand-mark { width: 15px; height: 13px; display: grid; gap: 2px; padding: 2px; border: 2px solid var(--blue); border-radius: 3px; }
 .brand-mark span { display: block; height: 2px; background: var(--blue); }
@@ -37,13 +38,18 @@ button { font: inherit; }
 .nav-link { position: relative; display: flex; align-items: center; color: #8a9ab1; font-size: 9px; font-weight: 600; }
 .nav-link.is-active { color: var(--blue); }
 .nav-link.is-active::after { position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; background: var(--blue); content: ""; }
-.nav-actions { display: flex; align-items: center; gap: 18px; margin-left: auto; }
+.nav-actions { position: absolute; right: 0; display: flex; align-items: center; gap: 18px; }
 .icon-button { display: grid; place-items: center; border: 0; background: transparent; color: #9aabc0; cursor: pointer; }
 .search-button svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-width: 2; }
 .profile-button { display: inline-flex; align-items: center; gap: 5px; padding: 7px 11px; border-radius: 5px; background: var(--blue); color: #fff; font-size: 9px; font-weight: 700; }
 .profile-icon { font-size: 11px; }
 .menu-button { display: none; gap: 3px; }
 .menu-button span { display: block; width: 17px; height: 2px; background: var(--blue); }
+
+.registration-page { min-height: calc(100vh - 58px); padding: 48px 0 58px; background: var(--pale); }
+.registration-card { width: min(100%, 430px); margin: 0 auto; padding: 25px 27px 27px; border: 1px solid var(--line); border-radius: 7px; background: #fff; box-shadow: 0 12px 30px rgba(24, 55, 100, .06); }
+.registration-heading { margin-bottom: 20px; text-align: center; }.registration-heading h1 { margin: 5px 0 7px; font-size: 27px; letter-spacing: -1.5px; }.registration-heading p:not(.eyebrow) { margin: 0; color: var(--muted); font-size: 8px; }
+.registration-form { display: grid; gap: 12px; }.registration-field { display: grid; gap: 5px; }.registration-field label { color: var(--ink); font-size: 8px; font-weight: 700; }.registration-field input, .registration-field textarea { width: 100%; padding: 9px 10px; border: 1px solid var(--line); border-radius: 5px; outline: 0; background: #fff; color: var(--ink); font: inherit; font-size: 8px; }.registration-field textarea { min-height: 58px; resize: vertical; }.registration-field input:focus, .registration-field textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(33, 97, 245, .1); }.registration-submit { width: 100%; margin-top: 5px; border: 0; cursor: pointer; }
 
 .hero { min-height: 365px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 40px; }
 .hero-copy { padding-top: 5px; }
@@ -63,8 +69,8 @@ h1 span, .brand span span { color: var(--blue); }
 .button-secondary:hover { border-color: var(--blue); color: var(--blue); }
 
 .hero-visual { position: relative; min-height: 245px; }
-.blue-shape { position: absolute; top: 17px; right: 23px; width: 71%; height: 177px; border-radius: 11px 11px 11px 0; background: var(--blue); }
-.match-card { position: absolute; top: 72px; left: 20px; width: 70%; padding: 11px 12px 10px; border: 1px solid var(--line); border-radius: 7px; background: #fff; box-shadow: 0 13px 25px rgba(24, 55, 100, .1); }
+.blue-shape { position: absolute; top: 17px; right: 6%; left: 12%; height: 177px; border-radius: 11px 11px 11px 0; background: var(--blue); }
+.match-card { position: absolute; top: 54px; left: 20%; width: 70%; padding: 11px 12px 10px; border: 1px solid var(--line); border-radius: 7px; background: #fff; box-shadow: 0 13px 25px rgba(24, 55, 100, .1); }
 .match-card-head, .review-author { display: flex; align-items: center; gap: 7px; }
 .avatar { display: grid; place-items: center; flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%; font-size: 7px; font-weight: 800; }
 .avatar-purple { background: #e8e5ff; color: #7369db; }
@@ -102,9 +108,9 @@ h2 { margin-bottom: 0; font-size: 22px; line-height: 1.1; letter-spacing: -1px; 
 
 .message.sent { margin-left: auto; border-color: var(--blue); border-radius: 5px 5px 0 5px; background: var(--blue); color: #fff; }.message.sent time { color: #dce8ff; }
 @media (max-width: 700px) {
-  .container { width: min(100% - 32px, 520px); }.navigation { height: 55px; gap: 0; }.nav-links, .search-button { display: none; }.menu-button { display: grid; margin-left: auto; }.nav-actions { margin-left: 14px; }.profile-button { padding: 7px 9px; }
+  .container { width: min(100% - 32px, 520px); }.navigation { height: 55px; gap: 0; }.navigation > .brand { left: 0; }.nav-links, .search-button { display: none; }.menu-button { display: grid; margin-left: auto; }.nav-actions { right: 29px; margin-left: 14px; }.profile-button { padding: 7px 9px; }
   .nav-links.is-open { position: absolute; top: 55px; right: 16px; left: 16px; z-index: 3; display: flex; align-items: center; gap: 22px; height: auto; padding: 14px 16px; border: 1px solid var(--line); border-radius: 6px; background: #fff; box-shadow: 0 12px 30px rgba(24, 55, 100, .1); }
-  .hero { display: flex; flex-direction: column; align-items: stretch; gap: 12px; padding-top: 47px; padding-bottom: 36px; }.hero-copy { order: 1; }.hero-visual { order: 2; min-height: 220px; }.blue-shape { right: 6%; width: 75%; height: 164px; }.match-card { left: 8%; width: 72%; }.label-top { right: 3%; }.label-bottom { right: 1%; bottom: 10px; }
+  .hero { display: flex; flex-direction: column; align-items: stretch; gap: 12px; padding-top: 47px; padding-bottom: 36px; }.hero-copy { order: 1; }.hero-visual { order: 2; min-height: 220px; }.blue-shape { right: 6%; left: 8%; height: 164px; }.match-card { left: 14%; width: 75%; }.label-top { right: 3%; }.label-bottom { right: 1%; bottom: 10px; }
   .section-heading, .reviews-heading, .cta { align-items: flex-start; flex-direction: column; gap: 12px; }.section-heading > p { max-width: 340px; }.steps-grid, .reviews-grid { grid-template-columns: 1fr; }.step-card { min-height: 132px; }.review-card p { min-height: auto; }.rating { align-self: flex-end; }.cta { align-items: stretch; }.cta .button { align-self: flex-start; }
 }
 

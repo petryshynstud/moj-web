@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="sk">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Registrácia do komunity SkillMatch.">
+	<title>Registrácia — SkillMatch</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header class="site-header">
+		<nav class="navigation container" aria-label="Hlavná navigácia">
+			<a class="brand" href="index.html" aria-label="SkillMatch, úvodná stránka"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a>
+			<div class="nav-links">
+				<a class="nav-link" href="index.html">Home</a>
+				<a class="nav-link" href="matching-hub.html">Matching Hub</a>
+				<a class="nav-link" href="moj-profil.html">Môj profil</a>
+				<a class="nav-link" href="chat.html">Chat</a>
+			</div>
+			<div class="nav-actions">
+				<button class="icon-button search-button" type="button" aria-label="Vyhľadávanie"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="m16 16 4 4"></path></svg></button>
+				<a class="profile-button" id="nav-profile-btn" href="registracia.html"><span class="profile-icon" aria-hidden="true">♙</span> Registrácia</a>
+			</div>
+			<button class="menu-button icon-button" type="button" aria-label="Otvoriť menu" aria-expanded="false"><span></span><span></span><span></span></button>
+		</nav>
+	</header>
+
+	<main class="registration-page">
+		<section class="registration-card" aria-labelledby="registration-title">
+			<div class="registration-heading">
+				<p class="eyebrow">NOVÝ ZAČIATOK</p>
+				<h1 id="registration-title">Vytvor si profil</h1>
+				<p>Pridaj sa ku komunite ľudí, ktorí si vymieňajú zručnosti.</p>
+			</div>
+			<form class="registration-form" id="registration-form">
+				<div class="registration-field"><label for="registration-name">Meno a Priezvisko</label><input id="registration-name" name="name" type="text" autocomplete="name" required></div>
+				<div class="registration-field"><label for="registration-email">E-mail</label><input id="registration-email" name="email" type="email" autocomplete="email" required></div>
+				<div class="registration-field"><label for="registration-offer">Čo ponúkam</label><textarea id="registration-offer" name="offer" required></textarea></div>
+				<div class="registration-field"><label for="registration-looking">Čo hľadám</label><textarea id="registration-looking" name="looking" required></textarea></div>
+				<div class="registration-field"><label for="registration-password">Heslo</label><input id="registration-password" name="password" type="password" autocomplete="new-password" required></div>
+				<button class="button button-primary registration-submit" type="submit">Zaregistrovať sa <span aria-hidden="true">→</span></button>
+			</form>
+		</section>
+	</main>
+
+	<footer class="matching-footer"><div class="matching-footer-inner container"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a><div class="footer-links"><a href="index.html">Home</a><a href="#kontakt">Kontakt</a><a href="#pravidla">Pravidlá</a></div></div></footer>
+	<div class="toast" role="status" aria-live="polite"></div>
+	<script src="script.js"></script>
+</body>
+</html>
