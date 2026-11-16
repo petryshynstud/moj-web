@@ -30,13 +30,14 @@
 				<p>Pridaj sa ku komunite ľudí, ktorí si vymieňajú zručnosti.</p>
 			</div>
 			<form class="registration-form" id="registration-form" action="dashboard.html" method="get">
-				<div class="registration-field"><label for="registration-first-name">Meno</label><input id="registration-first-name" name="firstName" type="text" autocomplete="given-name" required></div>
-				<div class="registration-field"><label for="registration-last-name">Priezvisko</label><input id="registration-last-name" name="lastName" type="text" autocomplete="family-name" required></div>
-				<div class="registration-field"><label for="registration-email">E-mail</label><input id="registration-email" name="email" type="email" autocomplete="email" required></div>
-				<div class="registration-field"><label for="registration-password">Heslo</label><input id="registration-password" name="password" type="password" autocomplete="new-password" required></div>
-				<div class="registration-field"><label for="registration-password-repeat">Zopakovať heslo</label><input id="registration-password-repeat" name="passwordRepeat" type="password" autocomplete="new-password" required></div>
+				<div class="registration-field"><label for="registration-first-name">Meno</label><input id="registration-first-name" name="firstName" type="text" placeholder="Artem" autocomplete="given-name" required></div>
+				<div class="registration-field"><label for="registration-last-name">Priezvisko</label><input id="registration-last-name" name="lastName" type="text" placeholder="Petryshyn" autocomplete="family-name" required></div>
+				<div class="registration-field"><label for="registration-email">E-mail</label><input id="registration-email" name="email" type="email" placeholder="artem.petryshyn@student.sk" autocomplete="email" required></div>
+				<div class="registration-field"><label for="registration-password">Heslo</label><input id="registration-password" name="password" type="password" minlength="6" placeholder="Aspoň 6 znakov" autocomplete="new-password" required></div>
+				<div class="registration-field"><label for="registration-password-repeat">Zopakovať heslo</label><input id="registration-password-repeat" name="passwordRepeat" type="password" minlength="6" placeholder="Zopakuj heslo" autocomplete="new-password" required></div>
 				<button class="button button-primary registration-submit" type="submit">Zaregistrovať sa <span aria-hidden="true">→</span></button>
 			</form>
+			<p class="registration-switch">Už máš účet? <a href="prihlasenie.html">Prihlás sa</a></p>
 		</section>
 	</main>
 
