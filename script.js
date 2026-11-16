@@ -6,6 +6,7 @@ const usersDB = [
     lokalita: 'Bratislava',
     bio: 'Zaujímam sa o programovanie a AI. Chcem sa zlepšovať v programovaní, ale potrebujem viac praktických skúseností.',
     potreby: 'Hľadám niekoho skúsenejšieho na praktické učenie a výmenu znalostí.',
+    avatar: 'img/jakub.png',
     linkedin: 'https://www.linkedin.com/in/kubgus/'
   },
   {
@@ -15,6 +16,7 @@ const usersDB = [
     lokalita: 'Bratislava',
     bio: 'Venujem sa programovaniu, web developmentu a sieťam. Mám technické znalosti, ale chcela by som ich viac využiť v praxi.',
     potreby: 'Hľadám projekty na precvičenie a nových ľudí na spoluprácu.',
+    avatar: 'img/timea.png',
     linkedin: 'https://www.linkedin.com/in/timea-klopčeková-255539244/'
   },
   {
@@ -24,6 +26,7 @@ const usersDB = [
     lokalita: 'Slovensko',
     bio: 'Venujem sa UX/UI dizajnu, webom a programovaniu. Mám skúsenosti s dizajnom, ale chcem sa naučiť ďalšie veci od ľudí z praxe.',
     potreby: 'Hľadám spätnú väzbu na svoju prácu a možnosť učiť sa od ostatných.',
+    avatar: 'img/petr.png',
     linkedin: 'https://www.linkedin.com/in/pbalabolkin/'
   }
 ];
@@ -118,6 +121,7 @@ function initializePublicProfile() {
   const bio = document.querySelector('#public-profile-bio');
   const needs = document.querySelector('#public-profile-needs');
   const initials = document.querySelector('#public-profile-initials');
+  const publicPhoto = document.querySelector('#public-profile-photo');
 
   if (name) name.textContent = user.meno;
   if (location) location.textContent = `◉ ${user.lokalita}`;
@@ -128,6 +132,12 @@ function initializePublicProfile() {
   if (bio) bio.textContent = user.bio;
   if (needs) needs.textContent = user.potreby;
   if (initials) initials.textContent = user.meno.slice(0, 2).toUpperCase();
+  const publicImage = document.querySelector('#public-profile-image');
+  if (publicPhoto && publicImage && user.avatar) {
+    publicPhoto.classList.add('has-image');
+    publicImage.src = user.avatar;
+    publicImage.alt = `Profilová fotografia používateľa ${user.meno}`;
+  }
 
   [['#public-link-github', user.github], ['#public-link-figma', user.figma], ['#public-link-linkedin', user.linkedin]].forEach(([selector, url]) => {
     const link = document.querySelector(selector);
