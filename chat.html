@@ -11,51 +11,29 @@
 	<header class="site-header">
 		<nav class="navigation container" aria-label="Hlavná navigácia">
 			<a class="brand" href="dashboard.html" aria-label="SkillMatch, dashboard"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a>
-			<div class="nav-links">
-				<a class="nav-link" href="dashboard.html">Home</a>
-				<a class="nav-link" href="matching-hub.html">Matching Hub</a>
-				<a class="nav-link is-active" href="chat.html">Chat</a>
-			</div>
-			<div class="nav-actions">
-				<a href="moj-profil.html" class="btn btn-primary">Môj profil</a>
-				<a href="index.html" class="login-link">Odhlásiť sa</a>
-			</div>
-			<button class="menu-button icon-button" type="button" aria-label="Otvoriť menu" aria-expanded="false"><span></span><span></span><span></span></button>
+			<div class="nav-links"><a class="nav-link" href="dashboard.html">Home</a><a class="nav-link" href="matching-hub.html">Matching Hub</a><a class="nav-link is-active" href="chat.html">Chat</a></div>
+			<div class="nav-actions"><a href="moj-profil.html" class="btn btn-primary">Môj profil</a><a href="index.html" class="login-link">Odhlásiť sa</a></div>
+			<button class="menu-button icon-button" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
 		</nav>
 	</header>
 
 	<main class="chat-page">
 		<div class="chat-main container">
-			<section class="chat-heading" aria-labelledby="chat-title">
-				<div><p class="eyebrow">KOMUNIKÁCIA</p><h1 id="chat-title">Chat</h1><p>Spojte sa s ľuďmi, ktorí vám pomôžu posunúť projekt ďalej.</p></div>
-				<span class="active-contacts"><i></i> 3 aktívne kontakty</span>
-			</section>
-
-			<section class="chat-shell" aria-label="Správy">
-				<aside class="conversation-panel" aria-label="Zoznam konverzácií">
-					<div class="conversation-heading"><div><h2>Konverzácie</h2><p>Vaše posledné správy</p></div><button class="icon-button" type="button" aria-label="Nastavenia konverzácií">⌘</button></div>
-					<p class="conversation-label">AKTÍVNE CHATY</p>
-					<div class="conversation-list">
-						<button class="conversation is-muted" type="button" data-name="Jakub (Python/AI)" data-avatar="JB"><span class="avatar avatar-dark">JB</span><span class="conversation-copy"><strong>Jakub (Python/AI)</strong><small>Jasné, pozrieme sa na to ...</small></span><time>10:42</time></button>
-						<button class="conversation is-selected" type="button" data-name="Lucia (UX dizajn)" data-avatar="LU"><span class="avatar avatar-lucia">LU<i></i></span><span class="conversation-copy"><strong>Lucia (UX dizajn)</strong><small>Pošlem ti návrh ešte dnes.</small></span><time>včera</time></button>
-						<button class="conversation" type="button" data-name="Martin (Marketing)" data-avatar="MN"><span class="avatar avatar-dark">MN</span><span class="conversation-copy"><strong>Martin (Marketing)</strong><small>Ďakujem za spätnú väzbu!</small></span><time>Po 16:20</time></button>
-						<button class="conversation" type="button" data-name="Petra (Copywriting)" data-avatar="PK"><span class="avatar avatar-petra">PK</span><span class="conversation-copy"><strong>Petra (Copywriting)</strong><small>To znie výborne, dohodnuté.</small></span><time>Ne 09:12</time></button>
+			<section class="chat-layout" aria-label="Správy">
+				<aside class="chat-sidebar" aria-label="Zoznam konverzácií">
+					<div class="chat-sidebar-heading"><div><p class="eyebrow">KOMUNIKÁCIA</p><h1>Správy</h1></div><span class="chat-count">3</span></div>
+					<label class="chat-search"><span aria-hidden="true">⌕</span><input type="text" placeholder="Hľadať konverzáciu..." aria-label="Hľadať konverzáciu..."></label>
+					<div class="chat-conversations">
+						<a class="chat-conversation is-active" href="chat.html"><div class="avatar-circle-wrap"><img src="img/jakub.png" alt="Jakub"></div><span class="chat-conversation-copy"><strong>Jakub</strong><small>Super, v stredu o 17:00 mi to vyhovuje...</small></span><time>14:20</time></a>
+						<a class="chat-conversation" href="chat.html"><div class="avatar-circle-wrap"><img src="img/timea.png" alt="Timea"></div><span class="chat-conversation-copy"><strong>Timea</strong><small>Ďakujem za tipy k responzívnemu CSS!</small></span><time>Včera</time></a>
+						<a class="chat-conversation" href="chat.html"><div class="avatar-circle-wrap"><img src="img/petr.png" alt="Petr"></div><span class="chat-conversation-copy"><strong>Petr</strong><small>Pošlem ti návrh vo Figme na spätnú väzbu.</small></span><time>Pondelok</time></a>
 					</div>
 				</aside>
 
-				<section class="message-panel" aria-label="Konverzácia s Luciou">
-					<header class="message-header"><span class="avatar avatar-lucia">LU<i></i></span><div><h2>Lucia (UX dizajn)</h2><p><i></i> Online teraz</p></div><button class="icon-button" type="button" aria-label="Ďalšie možnosti">⋮</button></header>
-					<div class="message-history">
-						<span class="message-date">Dnes</span>
-						<div class="message received">Ahoj Lucia tu ešte nie je dostupná v tomto náhľade.<time>09:08</time></div>
-					</div>
-					<form class="message-composer">
-						<button class="icon-button attachment-button" type="button" aria-label="Priložiť súbor">⌕</button>
-						<input type="text" placeholder="Napíšte správu..." aria-label="Napíšte správu...">
-						<button class="icon-button emoji-button" type="button" aria-label="Pridať emoji">☻</button>
-						<button class="send-button" type="submit" aria-label="Odoslať správu">➤</button>
-					</form>
-					<p class="composer-note">Správa bude odoslaná okamžite</p>
+				<section class="chat-window" aria-label="Konverzácia s Jakubom">
+					<header class="chat-window-header"><div class="avatar-circle-wrap"><img src="img/jakub.png" alt="Jakub"></div><div><h2>Jakub</h2><p><span class="online-dot"></span> Študent IT &amp; AI • Online</p></div><a class="button button-secondary" href="profil-jakub.html">Zobraziť profil</a></header>
+					<div class="chat-messages"><span class="chat-date">Dnes</span><div class="msg-incoming">Ahoj Artem! Videl som tvoj profil v Matching Hube. Zaoberáš sa Pythonom a základmi AI, mohol by si mi poradiť s jedným projektom?</div><div class="msg-outgoing">Ahoj Jakub! Jasné, veľmi rád. Na čom presne pracuješ? Na oplátku by som sa rád pozrel na tvoje tipy k praktickému programovaniu.</div><div class="msg-incoming">Super, v stredu o 17:00 mi to vyhovuje. Môžeme si zavolať a prejsť si to.</div></div>
+					<form action="chat.html" class="chat-input-form"><input type="text" placeholder="Napíš správu Jakubovi..." aria-label="Napíš správu Jakubovi..." required><button type="submit">Odoslať →</button></form>
 				</section>
 			</section>
 		</div>
