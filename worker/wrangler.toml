@@ -1,0 +1,7 @@
+name = "moj-web-gemini-proxy"
+main = "index.js"
+compatibility_date = "2024-11-01"
+
+# Додаємо прив'язку штучного інтелекту
+[ai]
+binding = "AI"
