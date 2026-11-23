@@ -80,16 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Єдине робоче мобільне меню (видаляє стару синю неробочу кнопку)
+  // 2. Мобільне меню (тільки Home / Matching Hub / Chat для мобільної версії)
   function initMobileMenu() {
     const header = document.querySelector('header');
     if (!header) return;
 
-    // Видаляємо старі неробочі кнопки гамбургера в шапці
-    header.querySelectorAll('button').forEach((btn) => {
-      if (btn.id !== 'sm-mobile-toggle') {
-        btn.remove();
-      }
+    // Видаляємо лише старі неробочі кнопки гамбургера
+    header.querySelectorAll('.menu-button, .hamburger, .mobile-menu-btn').forEach((btn) => {
+      btn.remove();
     });
 
     if (document.getElementById('sm-mobile-toggle')) return;
@@ -109,14 +107,10 @@ document.addEventListener('DOMContentLoaded', () => {
       ? [
           { href: 'dashboard.html', label: 'Home' },
           { href: 'matching-hub.html', label: 'Matching Hub' },
-          { href: 'chat.html', label: 'Chat' },
-          { href: 'moj-profil.html', label: 'Môj profil', primary: true },
-          { href: 'index.html', label: 'Odhlásiť sa', logout: true }
+          { href: 'chat.html', label: 'Chat' }
         ]
       : [
-          { href: 'index.html', label: 'Home' },
-          { href: 'prihlasenie.html', label: 'Prihlásenie' },
-          { href: 'registracia.html', label: 'Registrácia', primary: true }
+          { href: 'index.html', label: 'Home' }
         ];
 
     const drawer = document.createElement('nav');
@@ -128,15 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
       a.href = item.href;
       a.textContent = item.label;
       if (currentPage === item.href) a.classList.add('active');
-      if (item.primary) a.classList.add('mobile-btn-primary');
-      if (item.logout) {
-        a.classList.add('mobile-logout');
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          localStorage.removeItem(LOGGED_KEY);
-          window.location.href = 'index.html';
-        });
-      }
       drawer.appendChild(a);
     });
 
@@ -158,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initMobileMenu();
 
-  // 3. Вихід із акаунта для десктопної навігації
+  // 3. Вихід із акаунта для десктопної та мобільної навігації
   document.querySelectorAll('a, button').forEach((el) => {
     if (el.textContent && el.textContent.trim() === 'Odhlásiť sa') {
       el.addEventListener('click', (e) => {
@@ -319,39 +304,38 @@ document.addEventListener('DOMContentLoaded', () => {
       avatar: null
     };
 
-    // Знаходимо елемент аватара поруч із "Ahoj, som ..." і замінюємо на керований контейнер
+    // Знаходимо контейнер фото профілю (.profile-photo або інший аватар)
     function ensureAvatarContainer() {
-      let existing = document.getElementById('sm-dynamic-avatar');
-      if (existing) return existing;
+      let box =
+        document.getElementById('sm-dynamic-avatar') ||
+        document.querySelector('.profile-photo, #profile-avatar, .profile-avatar, .user-avatar, .avatar-box');
 
-      const greetingHeading = Array.from(document.querySelectorAll('h2, h3')).find((h) =>
-        h.textContent.trim().startsWith('Ahoj, som')
-      );
-
-      if (greetingHeading) {
-        let card = greetingHeading.parentElement;
-        while (card && card !== document.body) {
-          const media = card.querySelector('img, svg, [class*="avatar"]');
-          if (media && media.parentElement) {
-            const box = document.createElement('div');
-            box.id = 'sm-dynamic-avatar';
-            box.title = 'Klikni pre zmenu profilovej fotky';
-            box.style.cssText =
-              'width:82px; height:82px; min-width:82px; border-radius:16px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:#1e293b; color:#ffffff; font-weight:800; font-size:1.5rem; cursor:pointer; flex-shrink:0; border:1px solid #cbd5e1;';
-            media.replaceWith(box);
-            return box;
+      if (!box) {
+        const greetingHeading = Array.from(document.querySelectorAll('h2, h3')).find((h) =>
+          h.textContent.trim().startsWith('Ahoj, som')
+        );
+        if (greetingHeading) {
+          let card = greetingHeading.parentElement;
+          while (card && card !== document.body) {
+            const media = card.querySelector('.profile-photo, img, svg, [class*="avatar"]');
+            if (media) {
+              box = media;
+              break;
+            }
+            card = card.parentElement;
           }
-          card = card.parentElement;
         }
       }
 
-      return (
-        document.getElementById('profile-avatar') ||
-        document.querySelector('.profile-avatar, .user-avatar, .avatar-box')
-      );
+      if (box) {
+        box.id = 'sm-dynamic-avatar';
+        box.title = 'Klikni pre zmenu profilovej fotky';
+        box.style.cursor = 'pointer';
+      }
+
+      return box;
     }
 
-    // Створюємо модальне вікно редагування профілю та фото, якщо його немає в HTML
     function ensureEditModal() {
       let modal = document.getElementById('edit-profile-modal');
       if (modal) return modal;
@@ -470,9 +454,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const avatarBox = ensureAvatarContainer();
       if (avatarBox) {
-        if (user.avatar) {
-          avatarBox.innerHTML = `<img src="${user.avatar}" alt="${user.name}" style="width:100%; height:100%; object-fit:cover; display:block;">`;
+        if (avatarBox.tagName === 'IMG') {
+          if (user.avatar) avatarBox.src = user.avatar;
+        } else if (user.avatar) {
+          avatarBox.classList.add('has-image');
+          avatarBox.style.width = '76px';
+          avatarBox.style.height = '76px';
+          avatarBox.style.flex = '0 0 76px';
+          avatarBox.style.borderRadius = '12px';
+          avatarBox.innerHTML = `<img src="${user.avatar}" alt="${user.name}" class="profile-photo-image" style="width:100%; height:100%; object-fit:cover; display:block;">`;
         } else {
+          avatarBox.classList.remove('has-image');
+          avatarBox.style.width = '';
+          avatarBox.style.height = '';
+          avatarBox.style.flex = '';
+          avatarBox.style.borderRadius = '';
           avatarBox.innerHTML = `<span>${getInitials(user.name)}</span>`;
         }
       }
@@ -557,7 +553,6 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.style.display = 'flex';
     }
 
-    // Відкриття модалки по кнопці "Upraviť profil" або по кліку на аватар
     document.querySelectorAll('button, a').forEach((btn) => {
       if (btn.textContent && btn.textContent.trim().includes('Upraviť profil')) {
         btn.addEventListener('click', (e) => {

@@ -112,7 +112,7 @@ h1 span, .brand span span { color: var(--blue); }
 .section-pale { background: var(--pale); border-block: 1px solid var(--line); }
 .how-it-works { padding: 48px 0 50px; }
 .section-heading, .reviews-heading, .cta { display: flex; justify-content: space-between; align-items: end; gap: 30px; }
-h2 { margin-bottom: 0; font-size: 22px; line-height: 1.1; letter-spacing: -1px; }
+h2 { margin-bottom: 0; font-size: 22px; line-height: 1.1; letter-spacing: 0.2px; }
 .section-heading > p { max-width: 255px; margin-bottom: 0; color: var(--muted); font-size: 8px; line-height: 1.55; }
 .steps-grid, .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .steps-grid { margin-top: 21px; }
@@ -262,133 +262,258 @@ h2 { font-size: 24px; }
 }
 
 /* =========================================================
-   MOBILNÁ OPTIMALIZÁCIA A JEDNOTNÉ HAMBURGER MENU
+   DESKTOPOVÁ OCHRANA (SKRYTIE MOBILNÉHO MENU NA DESKTOPE)
    ========================================================= */
-.sm-mobile-toggle {
-  display: none !important;
-  background: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  color: #0f172a;
-  font-size: 1.35rem;
-  line-height: 1;
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-
+#sm-mobile-toggle,
+.sm-mobile-toggle,
+#sm-mobile-drawer,
 .sm-mobile-drawer {
+  display: none !important;
+}
+
+.mobile-chat-back-btn {
   display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: #ffffff;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 12px 20px 18px;
-  gap: 8px;
-  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.12);
-  z-index: 1500;
-}
-
-.sm-mobile-drawer.open {
-  display: flex;
-}
-
-.sm-mobile-drawer a {
-  display: block;
-  padding: 11px 14px;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  margin-right: 4px;
   border-radius: 10px;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #334155;
-  transition: background 0.15s ease;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #0f172a;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
-.sm-mobile-drawer a:hover,
-.sm-mobile-drawer a.active {
-  background: #eff6ff;
-  color: #2563eb;
-}
-
-.sm-mobile-drawer a.mobile-btn-primary {
-  background: #2563eb;
-  color: #ffffff;
-  text-align: center;
-  margin-top: 4px;
-}
-
-.sm-mobile-drawer a.mobile-logout {
-  color: #dc2626;
-}
-
+/* =========================================================
+   MOBILNÁ VERZIA (LEN DO ŠÍRKY 900PX)
+   ========================================================= */
 @media (max-width: 900px) {
-  header.navbar,
-  header.sm-topbar,
-  header {
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .site-header {
     position: sticky !important;
     top: 0;
     z-index: 1400;
+    background: #ffffff !important;
   }
 
-  /* Skrytie desktopových odkazov a starej modrej nefunkčnej ikony menu */
-  header .nav-links,
-  header .nav-actions,
-  header .sm-nav,
-  header .sm-actions,
-  header .mobile-menu-btn,
-  header .hamburger,
-  header .menu-toggle,
-  header button:not(#sm-mobile-toggle) {
-    display: none !important;
-  }
-
-  .sm-mobile-toggle {
-    display: inline-flex !important;
-  }
-
-  header .nav-container,
-  header .sm-topbar-inner,
-  header .container {
+  .site-header .navigation {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding: 0 16px !important;
-    height: 64px !important;
+    gap: 8px !important;
+    height: 58px !important;
+    position: relative !important;
   }
 
-  .hub-layout,
-  .dashboard-grid,
-  .profile-grid,
-  .hero-grid,
-  .steps-grid {
+  .site-header .navigation > .brand {
+    position: static !important;
+    display: inline-flex !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Skryje desktopové odkazy a starú modrú ikonu menu */
+  .site-header .nav-links,
+  .site-header .menu-button {
+    display: none !important;
+  }
+
+  /* Tlačidlá vpravo (Môj profil / Odhlásiť sa) kompaktne vedľa seba */
+  .site-header .nav-actions {
+    position: static !important;
+    margin-left: auto !important;
+    margin-right: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .site-header .nav-actions .btn,
+  .site-header .nav-actions .profile-button {
+    min-height: 32px !important;
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+
+  .site-header .nav-actions .login-link,
+  .site-header .nav-actions .login-button,
+  .site-header .nav-actions .logout-button {
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Jediné pracovné tlačidlo troch čiarok iba na mobile */
+  #sm-mobile-toggle,
+  .sm-mobile-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 8px !important;
+    border: 1px solid #cbd5e1 !important;
+    background: #f8fafc !important;
+    color: #0f172a !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Rozbaľovacie mobilné menu (iba Home / Matching Hub / Chat) */
+  #sm-mobile-drawer.open,
+  .sm-mobile-drawer.open {
     display: flex !important;
     flex-direction: column !important;
-    gap: 18px !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: #ffffff !important;
+    border-top: 1px solid #e2e8f0 !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding: 10px 16px 14px !important;
+    gap: 6px !important;
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1) !important;
+    z-index: 1500 !important;
   }
 
-  .hub-sidebar,
-  .hub-cards-grid {
-    width: 100% !important;
+  .sm-mobile-drawer a {
+    display: block !important;
+    padding: 10px 14px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+  }
+
+  .sm-mobile-drawer a:hover,
+  .sm-mobile-drawer a.active {
+    background: #eff6ff !important;
+    color: #2161f5 !important;
+  }
+
+  /* Mobilné rozloženie chatu */
+  .chat-section {
+    padding: 10px 12px 14px !important;
+    height: calc(100vh / 1.15 - 64px) !important;
     max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
-  .hub-cards-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
+  .chat-layout {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
   }
 
-  .profile-header-top,
-  .hub-search-bar {
+  .chat-sidebar {
+    display: flex !important;
     flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 12px !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-right: none !important;
+  }
+
+  .chat-main {
+    display: none !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .chat-layout.mobile-chat-open .chat-sidebar {
+    display: none !important;
+  }
+
+  .chat-layout.mobile-chat-open .chat-main {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .chat-layout.mobile-chat-open .mobile-chat-back-btn {
+    display: inline-flex !important;
+  }
+
+  .chat-header {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 10px 12px !important;
+    gap: 8px !important;
+  }
+
+  .chat-header-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+  }
+
+  .chat-header-left .chat-avatar {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .chat-header-title {
+    min-width: 0 !important;
+  }
+
+  .chat-header-title h2,
+  .chat-status {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .chat-header-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    width: 100% !important;
+    justify-content: flex-end !important;
+    padding-top: 6px !important;
+    border-top: 1px solid #f1f5f9 !important;
+  }
+
+  .chat-header-actions a,
+  .chat-header-actions button {
+    padding: 6px 10px !important;
+    font-size: 0.78rem !important;
+    white-space: nowrap !important;
+  }
+
+  .chat-messages {
+    padding: 14px !important;
+    flex: 1 !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+  }
+
+  .message-row {
+    max-width: 86% !important;
+  }
+
+  .chat-footer {
+    margin-bottom: 0 !important;
+    padding: 10px 12px !important;
+  }
+
+  .chat-form input {
+    min-width: 0 !important;
+    font-size: 16px !important;
   }
 }
