@@ -1,9 +1,30 @@
-<!-- Nepovinné pole pre LinkedIn profil -->
-<label for="linkedinUrl">LinkedIn profil (nepovinné)</label>
-<input
-  id="linkedinUrl"
-  name="linkedinUrl"
-  type="url"
-  placeholder="https://www.linkedin.com/in/tvoje-meno"
-  autocomplete="url"
-/>
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registrácia — SkillMatch</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header"><nav class="navigation container" aria-label="Hlavná navigácia">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a>
+    <div class="nav-links"><a class="nav-link" href="index.html">Home</a></div>
+    <div class="nav-actions"><a href="prihlasenie.html" class="login-link">Prihlásenie</a></div>
+  </nav></header>
+  <main class="registration-page"><section class="registration-card" aria-labelledby="registration-title">
+    <div class="registration-heading"><p class="eyebrow">NOVÝ ZAČIATOK</p><h1 id="registration-title">Vytvor si profil</h1><p>Pridaj sa ku komunite ľudí, ktorí si vymieňajú zručnosti.</p></div>
+    <form class="registration-form" id="registration-form">
+      <div class="registration-field"><label for="registration-first-name">Meno</label><input id="registration-first-name" type="text" autocomplete="given-name" required></div>
+      <div class="registration-field"><label for="registration-last-name">Priezvisko</label><input id="registration-last-name" type="text" autocomplete="family-name" required></div>
+      <div class="registration-field"><label for="registration-email">E-mail</label><input id="registration-email" type="email" autocomplete="email" required></div>
+      <div class="registration-field"><label for="registration-password">Heslo</label><input id="registration-password" type="password" minlength="6" autocomplete="new-password" required></div>
+      <div class="registration-field"><label for="registration-password-repeat">Zopakovať heslo</label><input id="registration-password-repeat" type="password" minlength="6" autocomplete="new-password" required></div>
+      <button class="button button-primary registration-submit" type="submit">Zaregistrovať sa <span aria-hidden="true">→</span></button>
+    </form>
+    <p class="registration-switch">Už máš účet? <a href="prihlasenie.html">Prihlás sa</a></p>
+  </section></main>
+  <footer class="matching-footer"><div class="matching-footer-inner container"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
