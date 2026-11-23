@@ -9,7 +9,11 @@ const POVOLENE_ORIGINY = [
 ];
 
 function cors(origin) {
-  const povoleny = POVOLENE_ORIGINY.includes(origin) ? origin : POVOLENE_ORIGINY[0];
+  const localhostOrigin = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
+  const githubOrigin = origin.endsWith('.github.io');
+  const povoleny = !origin || POVOLENE_ORIGINY.includes(origin) || localhostOrigin || githubOrigin
+    ? (origin || '*')
+    : POVOLENE_ORIGINY[0];
   return {
     "Access-Control-Allow-Origin": povoleny,
     "Access-Control-Allow-Methods": "POST, OPTIONS",

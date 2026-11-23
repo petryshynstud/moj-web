@@ -121,6 +121,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  if (!chatForm || !chatInput || !messagesContainer || !sendBtn) return;
+
   chatForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const text = chatInput.value.trim();
@@ -160,7 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
         })
       });
 
-      if (!response.ok) throw new Error(`Chyba API: ${response.status}`);
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Chyba API ${response.status}: ${errorText || 'Server nevrátil odpoveď.'}`);
+      }
       
       const data = await response.json();
       const replyText = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'Prepáč, nerozumel som.';

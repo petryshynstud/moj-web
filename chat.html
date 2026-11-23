@@ -18,10 +18,10 @@
 
     /* 2. Контейнер чату займає всю доступну висоту екрану */
     .chat-section {
-      padding: 20px;
+      padding: 12px 20px 20px;
       max-width: 1200px;
       margin: 0 auto;
-      height: 100vh; /* 100% висоти екрану */
+      height: calc(100vh - 92px); /* Header a spodný odstup zostávajú mimo chatu */
       box-sizing: border-box;
     }
 
@@ -125,6 +125,10 @@
 
     /* 5. Поле вводу завжди прибите до низу */
     .chat-footer {
+      position: sticky;
+      bottom: 0;
+      z-index: 2;
+      margin-bottom: 12px;
       padding: 16px 24px;
       border-top: 1px solid #e2e8f0;
       background: #ffffff;
@@ -139,10 +143,23 @@
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <nav class="navigation container" aria-label="Hlavná navigácia">
+      <a class="brand" href="dashboard.html" aria-label="SkillMatch, dashboard"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a>
+      <div class="nav-links">
+        <a class="nav-link" href="dashboard.html">Home</a>
+        <a class="nav-link" href="matching-hub.html">Matching Hub</a>
+        <a class="nav-link is-active" href="chat.html">Chat</a>
+      </div>
+      <div class="nav-actions">
+        <a href="moj-profil.html" class="btn btn-primary">Môj profil</a>
+        <a href="index.html" class="login-link">Odhlásiť sa</a>
+      </div>
+      <button class="menu-button icon-button" type="button" aria-label="Otvoriť menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
 
   <!-- Навігація (якщо є) -->
-  <!-- <header>...</header> -->
-
   <main class="chat-section">
     <div class="chat-layout">
       
