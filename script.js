@@ -1,3 +1,13 @@
+// Автоматичне додавання іконки (favicon) на всі сторінки сайту
+(function setSiteFavicon() {
+  if (document.querySelector('link[rel*="icon"]')) return;
+  const link = document.createElement('link');
+  link.rel = 'icon';
+  link.type = 'image/svg+xml';
+  link.href =
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='6' width='56' height='52' rx='12' fill='%23ffffff' stroke='%232161f5' stroke-width='6'/%3E%3Crect x='15' y='21' width='34' height='6.5' rx='3' fill='%232161f5'/%3E%3Crect x='15' y='36' width='22' height='6.5' rx='3' fill='%232161f5'/%3E%3C/svg%3E";
+  document.head.appendChild(link);
+})();
 document.addEventListener('DOMContentLoaded', () => {
   const USER_KEY = 'skillmatch_user';
   const LOGGED_KEY = 'skillmatch_logged_in';
