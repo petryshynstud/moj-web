@@ -260,3 +260,135 @@ h2 { font-size: 24px; }
 @media (max-width: 700px) {
   .chat-main { padding-top: 20px; padding-bottom: 30px; }.chat-layout { grid-template-columns: 1fr; min-height: 720px; }.chat-sidebar { border-right: 0; border-bottom: 1px solid var(--line); }.chat-conversations { grid-template-columns: 1fr; }.chat-window { min-height: 430px; }.chat-window-header { padding: 16px; }.chat-window-header .button { padding: 8px 10px; }.chat-messages { padding: 20px 16px; }.msg-incoming, .msg-outgoing { max-width: 86%; }.chat-input-form { margin: 0 16px 16px; }
 }
+
+/* =========================================================
+   MOBILNÁ OPTIMALIZÁCIA A JEDNOTNÉ HAMBURGER MENU
+   ========================================================= */
+.sm-mobile-toggle {
+  display: none !important;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  font-size: 1.35rem;
+  line-height: 1;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.sm-mobile-drawer {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 12px 20px 18px;
+  gap: 8px;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.12);
+  z-index: 1500;
+}
+
+.sm-mobile-drawer.open {
+  display: flex;
+}
+
+.sm-mobile-drawer a {
+  display: block;
+  padding: 11px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #334155;
+  transition: background 0.15s ease;
+}
+
+.sm-mobile-drawer a:hover,
+.sm-mobile-drawer a.active {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.sm-mobile-drawer a.mobile-btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.sm-mobile-drawer a.mobile-logout {
+  color: #dc2626;
+}
+
+@media (max-width: 900px) {
+  header.navbar,
+  header.sm-topbar,
+  header {
+    position: sticky !important;
+    top: 0;
+    z-index: 1400;
+  }
+
+  /* Skrytie desktopových odkazov a starej modrej nefunkčnej ikony menu */
+  header .nav-links,
+  header .nav-actions,
+  header .sm-nav,
+  header .sm-actions,
+  header .mobile-menu-btn,
+  header .hamburger,
+  header .menu-toggle,
+  header button:not(#sm-mobile-toggle) {
+    display: none !important;
+  }
+
+  .sm-mobile-toggle {
+    display: inline-flex !important;
+  }
+
+  header .nav-container,
+  header .sm-topbar-inner,
+  header .container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 16px !important;
+    height: 64px !important;
+  }
+
+  .hub-layout,
+  .dashboard-grid,
+  .profile-grid,
+  .hero-grid,
+  .steps-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+  }
+
+  .hub-sidebar,
+  .hub-cards-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .hub-cards-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .profile-header-top,
+  .hub-search-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+}
