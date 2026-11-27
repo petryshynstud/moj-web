@@ -13,7 +13,12 @@
   --green: #12b981;
 }
 
-html { scroll-behavior: smooth; }
+html { 
+
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+
+}
 
 body {
   margin: 0;
@@ -64,6 +69,10 @@ button { font: inherit; }
 .registration-heading { margin-bottom: 20px; text-align: center; }.registration-heading h1 { margin: 5px 0 7px; font-size: 27px; letter-spacing: -1.5px; }.registration-heading p:not(.eyebrow) { margin: 0; color: var(--muted); font-size: 8px; }
 .registration-form { display: grid; gap: 12px; }.registration-field { display: grid; gap: 5px; }.registration-field label { color: var(--ink); font-size: 8px; font-weight: 700; }.registration-field input, .registration-field textarea { width: 100%; padding: 9px 10px; border: 1px solid var(--line); border-radius: 5px; outline: 0; background: #fff; color: var(--ink); font: inherit; font-size: 8px; }.registration-field textarea { min-height: 58px; resize: vertical; }.registration-field input:focus, .registration-field textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(33, 97, 245, .1); }.registration-submit { width: 100%; margin-top: 5px; border: 0; cursor: pointer; }
 .registration-switch { margin: 16px 0 0; color: var(--muted); font-size: 9px; text-align: center; }.registration-switch a { color: var(--blue); font-weight: 700; }
+.registration-field input:not(:placeholder-shown):invalid {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
 
 .hero { min-height: 365px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 40px; }
 .dashboard-heading { padding: 48px 0 25px; }.dashboard-heading h1 { margin: 5px 0 8px; font-size: 30px; letter-spacing: -1.6px; }.dashboard-heading > p:last-child { margin: 0; color: var(--muted); font-size: 9px; }.dashboard-recommendations { padding-bottom: 55px; }.dashboard-recommendations .profile-grid { margin-top: 16px; }.dashboard-link { margin-top: 20px; }
@@ -515,5 +524,74 @@ h2 { font-size: 24px; }
   .chat-form input {
     min-width: 0 !important;
     font-size: 16px !important;
+  }
+}
+
+/* =========================================================
+   DOPLNENÉ ŠTÝLY PRE DASHBOARD A FILTER ÚROVNE
+   ========================================================= */
+.dashboard-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 780px;
+  margin: 0 auto 8px;
+}
+
+.dashboard-quick-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(24, 55, 100, 0.05);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.dashboard-quick-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--blue);
+}
+
+.dashboard-quick-badge {
+  align-self: flex-start;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #edf3ff;
+  color: var(--blue);
+  font-size: 7px;
+  font-weight: 700;
+}
+
+.dashboard-quick-card strong {
+  margin-top: 4px;
+  color: var(--ink);
+  font-size: 11px;
+}
+
+.dashboard-quick-card span:last-child {
+  color: var(--muted);
+  font-size: 8px;
+}
+
+.level-range-input {
+  width: 100%;
+  margin: 10px 0 6px;
+  accent-color: var(--blue);
+  cursor: pointer;
+}
+
+.contact-art {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+  color: #b7c9e8;
+}
+
+@media (max-width: 700px) {
+  .dashboard-quick-grid {
+    grid-template-columns: 1fr;
   }
 }

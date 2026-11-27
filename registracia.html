@@ -17,7 +17,17 @@
     <form class="registration-form" id="registration-form">
       <div class="registration-field"><label for="registration-first-name">Meno</label><input id="registration-first-name" type="text" autocomplete="given-name" required></div>
       <div class="registration-field"><label for="registration-last-name">Priezvisko</label><input id="registration-last-name" type="text" autocomplete="family-name" required></div>
-      <div class="registration-field"><label for="registration-email">E-mail</label><input id="registration-email" type="email" autocomplete="email" required></div>
+      <div class="registration-field">
+  <label for="registration-email">E-mail</label>
+  <input
+    id="registration-email"
+    type="email"
+    autocomplete="email"
+    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+    title="Zadaj platný e-mail s doménou, napríklad meno@student.sk"
+    required
+  >
+</div>
       <div class="registration-field"><label for="registration-password">Heslo</label><input id="registration-password" type="password" minlength="6" autocomplete="new-password" required></div>
       <div class="registration-field"><label for="registration-password-repeat">Zopakovať heslo</label><input id="registration-password-repeat" type="password" minlength="6" autocomplete="new-password" required></div>
       <button class="button button-primary registration-submit" type="submit">Zaregistrovať sa <span aria-hidden="true">→</span></button>

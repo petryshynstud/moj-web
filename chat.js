@@ -10,16 +10,22 @@ document.addEventListener('DOMContentLoaded', () => {
       avatar: 'img/jakub.png',
       profileUrl: 'profil-jakub.html',
       skills: 'programovanie v Pythone, algoritmy, umelá inteligencia',
-      initialMessage: 'Ahoj! Som Jakub. Zaujímam sa o programovanie, Python a umelú inteligenciu. S čím ti môžem dnes pomôcť?'
+      styleInstruction:
+        'Si Jakub, študent IT & AI na platforme SkillMatch. Odpovedaj po slovensky maximálne stručne, vecne a priamo k veci (1 až 2 krátke vety, bez zbytočných úvodov a omáčky).',
+      initialMessage:
+        'Ahoj! Som Jakub. Riešim Python, algoritmy a AI. S čím konkrétne potrebuješ pomôcť?'
     },
     timea: {
       id: 'timea',
       name: 'Timea',
-      role: 'Študentka IT',
+      role: 'Profesorka matematiky',
       avatar: 'img/timea.png',
       profileUrl: 'profil-timea.html',
-      skills: 'web development, HTML/CSS, JavaScript, počítačové siete',
-      initialMessage: 'Ahoj! Som Timea. Venujem sa tvorbe webov, responzívnemu CSS a sieťam. Chceš prebrať nejaký webový projekt?'
+      skills: 'matematická analýza, lineárna algebra, pravdepodobnosť a štatistika, diskrétna matematika',
+      styleInstruction:
+        'Si Timea, trpezlivá a erudovaná profesorka matematiky na platforme SkillMatch. Odpovedaj prirodzene po slovensky. Každý pojem alebo postup vysvetľuj zrozumiteľne a vždy uveď aspoň jeden konkrétny príklad s krokom riešenia. Na záver odpovede polož 1 až 2 cielené upresňujúce otázky, aby si zistila úroveň študenta alebo presné zadanie problému.',
+      initialMessage:
+        'Dobrý deň! Som Timea, profesorka matematiky. Rada vám pomôžem s matematikou – od algebry a analýzy až po štatistiku. S akou témou alebo príkladom momentálne pracujete a na akej úrovni sa jej venujete?'
     },
     petr: {
       id: 'petr',
@@ -28,7 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
       avatar: 'img/petr.png',
       profileUrl: 'profil-petr.html',
       skills: 'UX/UI dizajn, Figma, tvorba webov, typografia',
-      initialMessage: 'Čau! Som Petr, riešim UX/UI dizajn vo Figme a čistú typografiu. Potrebuješ spätnú väzbu na dizajn?'
+      styleInstruction:
+        'Si Petr, študent a UX/UI dizajnér na platforme SkillMatch. Odpovedaj prirodzene po slovensky, priateľsky a konštruktívne (2 až 4 vety).',
+      initialMessage:
+        'Čau! Som Petr, riešim UX/UI dizajn vo Figme a čistú typografiu. Potrebuješ spätnú väzbu na dizajn?'
     }
   };
 
@@ -57,6 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('chat-search-input');
   const backBtn = document.getElementById('mobile-chat-back');
   const headerActions = document.querySelector('.chat-header-actions');
+  const badgeCountEl = document.querySelector('.chat-badge-count');
+
+  if (badgeCountEl) {
+    badgeCountEl.textContent = String(Object.keys(defaultPersonas).length);
+  }
 
   function getCurrentTime() {
     return new Date().toLocaleTimeString('sk-SK', { hour: '2-digit', minute: '2-digit' });
@@ -72,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return chatHistory[personaId];
   }
 
-  // Очищення історії чату при виході з вікна діалогу або сторінки
   function clearChatHistory() {
     chatHistory = {};
     localStorage.removeItem(STORAGE_HISTORY_KEY);
@@ -88,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
       item.dataset.persona = p.id;
       item.addEventListener('click', () => selectPersona(p.id, true));
       item.innerHTML = `
-        <div class="chat-avatar"><img src="${p.avatar}" alt="${p.name}"></div>
+        <div class="chat-avatar"><img src="${p.avatar}" alt=""></div>
         <div class="chat-item-info">
           <div class="chat-item-header">
             <h3>${p.name}</h3>
@@ -109,10 +122,17 @@ document.addEventListener('DOMContentLoaded', () => {
     messages.forEach((msg) => {
       const row = document.createElement('div');
       row.className = `message-row ${msg.sender === 'user' ? 'outgoing' : 'incoming'}`;
-      row.innerHTML = `
-        <div class="message-bubble">${msg.text}</div>
-        <div class="message-time">${msg.time || ''}</div>
-      `;
+
+      const bubble = document.createElement('div');
+      bubble.className = 'message-bubble';
+      bubble.textContent = msg.text;
+
+      const timeEl = document.createElement('div');
+      timeEl.className = 'message-time';
+      timeEl.textContent = msg.time || '';
+
+      row.appendChild(bubble);
+      row.appendChild(timeEl);
       messagesContainer.appendChild(row);
     });
 
@@ -140,7 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Кнопка "← Späť" у мобільній версії: закриває вікно чату та очищує історію
   if (backBtn) {
     backBtn.addEventListener('click', () => {
       clearChatHistory();
@@ -149,7 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Кнопка "Ukončiť chat" для очищення історії в будь-який момент
   if (headerActions && !document.getElementById('exit-clear-chat-btn')) {
     const clearBtn = document.createElement('button');
     clearBtn.type = 'button';
@@ -166,7 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
     headerActions.appendChild(clearBtn);
   }
 
-  // Автоматичне очищення історії при переході на іншу сторінку
   window.addEventListener('pagehide', clearChatHistory);
 
   if (searchInput) {
@@ -240,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
         typingRow.remove();
         history.push({
           sender: 'model',
-          text: `⚠️ Chyba pripojenia: ${err.message}`,
+          text: `Chyba pripojenia: ${err.message}`,
           time: getCurrentTime()
         });
         renderMessages(activeId);
@@ -251,7 +268,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Підтримка відкриття конкретного учасника з профілю (chat.html?persona=timea)
   const params = new URLSearchParams(window.location.search);
   const urlPersona = (params.get('persona') || '').toLowerCase();
   if (urlPersona && defaultPersonas[urlPersona]) {

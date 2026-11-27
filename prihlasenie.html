@@ -30,7 +30,19 @@
 				<p>Prihlás sa a pokračuj vo výmene zručností.</p>
 			</div>
 			<form class="registration-form" id="login-form" action="dashboard.html" method="get">
-				<div class="registration-field"><label for="login-email">E-mail</label><input id="login-email" name="email" type="email" placeholder="artem.petryshyn@student.sk" autocomplete="email" required></div>
+				<div class="registration-field">
+  <label for="login-email">E-mail</label>
+  <input
+    id="login-email"
+    name="email"
+    type="email"
+    placeholder="meno@student.sk"
+    autocomplete="email"
+    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+    title="Zadaj platný e-mail s doménou, napríklad meno@student.sk"
+    required
+  >
+</div>
 				<div class="registration-field"><label for="login-password">Heslo</label><input id="login-password" name="password" type="password" placeholder="Tvoje heslo" autocomplete="current-password" required></div>
 				<button class="button button-primary registration-submit" type="submit">Prihlásiť sa</button>
 			</form>

@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Profil Martiny Kováčovej na platforme SkillMatch.">
+  <meta name="description" content="Môj používateľský profil na platforme SkillMatch.">
   <title>Môj profil — SkillMatch</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,47 +27,61 @@
 
   <main class="profile-page">
     <div class="profile-main container">
-      <section class="profile-heading" aria-labelledby="profile-title">
-        <div><p class="eyebrow">MÔJ PROFIL</p><h1 id="profile-name-display">Artem Petryshyn</h1><p class="profile-meta"><span id="profile-location">Lokalita neuvedená</span> · Člen SkillMatch</p></div>
+      <section class="profile-heading" aria-labelledby="profile-name-display">
+        <div><p class="eyebrow">MÔJ PROFIL</p><h1 id="profile-name-display">Študent SkillMatch</h1><p class="profile-meta"><span id="profile-location">Slovensko</span> · Člen SkillMatch</p></div>
         <div class="profile-heading-actions"><a href="chat.html" class="btn btn-primary">Prejsť do chatu</a><button type="button" id="edit-profile-button" class="btn btn-secondary">Upraviť profil</button></div>
       </section>
 
       <section class="profile-dashboard" aria-label="Informácie o profile">
         <div>
-          <article class="profile-card-panel profile-about"><div class="profile-photo" role="img" aria-label="Profilová fotografia používateľa"><span id="profile-initials">AP</span></div><div><h2 id="profile-greeting">Ahoj, som Artem</h2><p><span id="profile-role">Nový člen</span> · <span id="profile-exchanges">0 výmen</span></p><p id="profile-bio" class="empty-hint">Zatiaľ nemáš vyplnené bio. Klikni na „Upraviť profil“ a napíš niečo o sebe.</p></div></article>
+          <article class="profile-card-panel profile-about"><div class="profile-photo" role="img" aria-label="Profilová fotografia používateľa"><span id="profile-initials">SM</span></div><div><h2 id="profile-greeting">Ahoj, som študent</h2><p><span id="profile-role">Nový člen</span> · <span id="profile-exchanges">0 výmen</span></p><p id="profile-bio" class="empty-hint">Zatiaľ nemáš vyplnené bio. Klikni na „Upraviť profil“ a napíš niečo o sebe.</p></div></article>
           <div class="profile-offerings">
-            <article class="profile-card-panel offering-card"><h2>Čo ponúkam</h2><p>Zručnosti, ktoré rada odovzdávam</p><ul class="offering-list" id="profile-offers"><li>Zatiaľ nepridané žiadne zručnosti.</li></ul></article>
+            <article class="profile-card-panel offering-card"><h2>Čo ponúkam</h2><p>Zručnosti, ktoré odovzdávam</p><ul class="offering-list" id="profile-offers"><li>Zatiaľ nepridané žiadne zručnosti.</li></ul></article>
             <article class="profile-card-panel offering-card"><h2>Čo hľadám</h2><p>Na čom chcem pracovať ďalej</p><ul class="offering-list looking-list" id="profile-seeks"><li>Zatiaľ nepridané žiadne zručnosti.</li></ul></article>
           </div>
         </div>
-        <aside class="portfolio-card" id="profile-portfolio"><p class="eyebrow">PORTFÓLIO</p><h2>Pozrime sa na moju prácu.</h2><p>Zatiaľ nepridané žiadne odkazy na portfólio.</p><div class="portfolio-links"></div></aside>
+        <aside class="portfolio-card" id="profile-portfolio">
+          <p class="eyebrow">PORTFÓLIO</p>
+          <h2>Pozrime sa na moju prácu.</h2>
+          <p class="portfolio-empty-text">Zatiaľ nepridané žiadne odkazy na portfólio.</p>
+          <div class="portfolio-links"></div>
+        </aside>
       </section>
 
       <section class="profile-lower">
-        <article class="profile-card-panel activity-card"><div class="profile-section-top"><div><p class="eyebrow">AKTIVITA</p><h2>Prehľad výmen</h2></div></div><p class="empty-state">Tvoj kalendár výmen momentálne spí zimným spánkom 🐻‍❄️. Rýchlo si niekoho nájdi v Matching Hube, kým tu nenarastú pavučiny!</p></article>
-        <article class="profile-card-panel feedback-card"><div class="profile-section-top"><div><p class="eyebrow">SPÄTNÁ VÄZBA</p><h2>Recenzie</h2></div></div><p class="empty-state">Zatiaľ tu vládne ticho... 🦗 Ešte nemáš žiadne recenzie. Dohodni si prvú výmenu, ohúr ich svojimi znalosťami a získaj prvých 5 hviezdičiek!</p></article>
+        <article class="profile-card-panel activity-card"><div class="profile-section-top"><div><p class="eyebrow">AKTIVITA</p><h2>Prehľad výmen</h2></div></div><p class="empty-state">Tvoj kalendár výmen momentálne spí zimným spánkom. Rýchlo si niekoho nájdi v Matching Hube!</p></article>
+        <article class="profile-card-panel feedback-card"><div class="profile-section-top"><div><p class="eyebrow">SPÄTNÁ VÄZBA</p><h2>Recenzie</h2></div></div><p class="empty-state">Zatiaľ tu vládne ticho... Ešte nemáš žiadne recenzie. Dohodni si prvú výmenu a získaj prvých 5 hviezdičiek!</p></article>
       </section>
 
-      <section class="profile-card-panel history-card"><div class="profile-section-top"><div><p class="eyebrow">HISTÓRIA</p><h2>Moje výmeny</h2></div></div><p class="empty-state">Tvoj kalendár výmen momentálne spí zimným spánkom 🐻‍❄️. Rýchlo si niekoho nájdi v Matching Hube, kým tu nenarastú pavučiny!</p></section>
+      <section class="profile-card-panel history-card"><div class="profile-section-top"><div><p class="eyebrow">HISTÓRIA</p><h2>Moje výmeny</h2></div></div><p class="empty-state">Zatiaľ nemáš dokončené žiadne výmeny. Vyber si partnera v Matching Hube.</p></section>
     </div>
   </main>
 
-  <footer class="matching-footer"><div class="matching-footer-inner container"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a><div class="footer-links"><a href="index.html">Home</a><a href="#kontakt">Kontakt</a><a href="#pravidla">Pravidlá</a></div></div></footer>
+  <footer class="matching-footer"><div class="matching-footer-inner container"><a class="brand" href="dashboard.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a><div class="footer-links"><a href="dashboard.html">Home</a><a href="dashboard.html#kontakt">Kontakt</a><a href="matching-hub.html">Matching Hub</a></div></div></footer>
 
   <div id="edit-profile-modal" class="modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="edit-profile-title">
     <div class="modal-box">
       <h2 id="edit-profile-title">Upraviť profil</h2>
       <form id="edit-profile-form" class="registration-form">
-        <div class="registration-field"><label for="edit-avatar">Profilová fotka</label><input id="edit-avatar" name="avatar" type="file" accept="image/*"><label for="remove-avatar"><input type="checkbox" id="remove-avatar" name="removeAvatar"> Odstrániť fotku (použiť iniciály)</label></div>
+        <div class="registration-field">
+          <label for="edit-avatar">Profilová fotka</label>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div id="edit-avatar-preview" style="width:52px; height:52px; border-radius:12px; overflow:hidden; background:#1e293b; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:13px; flex-shrink:0;">SM</div>
+            <div style="display:grid; gap:6px; flex:1;">
+              <input id="edit-avatar" name="avatar" type="file" accept="image/*">
+              <label for="remove-avatar" style="display:inline-flex; align-items:center; gap:6px; font-weight:500; color:#dc2626; cursor:pointer;"><input type="checkbox" id="remove-avatar" name="removeAvatar" style="width:auto;"> Odstrániť fotku (použiť iniciály)</label>
+            </div>
+          </div>
+        </div>
         <div class="registration-field"><label for="edit-name">Meno a priezvisko</label><input id="edit-name" name="name" type="text" required></div>
         <div class="registration-field"><label for="edit-role">Pozícia / štúdium</label><input id="edit-role" name="role" type="text" placeholder="Študent IT"></div>
         <div class="registration-field"><label for="edit-location">Mesto a krajina</label><input id="edit-location" name="location" type="text" placeholder="Bratislava, Slovensko"></div>
         <div class="registration-field"><label for="edit-bio">O mne / Bio</label><textarea id="edit-bio" name="bio"></textarea></div>
-        <div class="registration-field"><label for="edit-offers">Čo ponúkam</label><input id="edit-offers" name="offers" type="text" placeholder="HTML/CSS, Python, Angličtina"></div>
-        <div class="registration-field"><label for="edit-seeks">Čo hľadám</label><input id="edit-seeks" name="seeks" type="text" placeholder="UX/UI dizajn, JavaScript"></div>
-        <div class="registration-field"><label for="edit-github">GitHub odkaz</label><input id="edit-github" name="github" type="url" placeholder="https://github.com/"></div>
-        <div class="registration-field"><label for="edit-figma">Figma odkaz</label><input id="edit-figma" name="figma" type="url" placeholder="https://figma.com/"></div>
-        <div class="registration-field"><label for="edit-linkedin">LinkedIn odkaz</label><input id="edit-linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/"></div>
+        <div class="registration-field"><label for="edit-offers">Čo ponúkam (oddelené čiarkou)</label><input id="edit-offers" name="offers" type="text" placeholder="HTML/CSS, Python, Angličtina"></div>
+        <div class="registration-field"><label for="edit-seeks">Čo hľadám (oddelené čiarkou)</label><input id="edit-seeks" name="seeks" type="text" placeholder="UX/UI dizajn, JavaScript"></div>
+        <div class="registration-field"><label for="edit-github">GitHub odkaz</label><input id="edit-github" name="github" type="text" placeholder="github.com/meno"></div>
+        <div class="registration-field"><label for="edit-figma">Figma odkaz</label><input id="edit-figma" name="figma" type="text" placeholder="figma.com/@meno"></div>
+        <div class="registration-field"><label for="edit-linkedin">LinkedIn odkaz</label><input id="edit-linkedin" name="linkedin" type="text" placeholder="linkedin.com/in/meno"></div>
         <div class="modal-actions"><button type="button" id="cancel-profile-edit" class="btn btn-secondary">Zrušiť</button><button type="submit" class="btn btn-primary">Uložiť zmeny</button></div>
       </form>
     </div>

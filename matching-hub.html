@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Nájdite ľudí, s ktorými si vymeníte vedomosti, skúsenosti a inšpiráciu.">
 	<title>Matching Hub — SkillMatch</title>
+	<link rel="icon" type="image/svg+xml" href="favicon.svg">
 	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -27,35 +28,49 @@
 	<main class="matching-page">
 		<div class="matching-main container">
 			<section class="matching-intro" aria-labelledby="matching-title">
-				<div><p class="eyebrow intro-eyebrow">♧ OBJAVTE NOVÉ MOŽNOSTI</p><h1 id="matching-title">Matching Hub</h1><p>Nájdite ľudí, s ktorými si vymeníte vedomosti, skúsenosti a inšpiráciu.</p></div>
+				<div><p class="eyebrow intro-eyebrow"><span class="sparkle" aria-hidden="true">✦</span> OBJAVTE NOVÉ MOŽNOSTI</p><h1 id="matching-title">Matching Hub</h1><p>Nájdite ľudí, s ktorými si vymeníte vedomosti, skúsenosti a inšpiráciu.</p></div>
 				<div class="matching-count"><strong>3 aktívne profily</strong><span>Pripravené na výmenu dnes</span></div>
 			</section>
 
 			<div class="matching-tools">
-				<label class="matching-search" for="profile-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="m16 16 4 4"></path></svg><input id="profile-search" type="search" placeholder="Vyhľadávanie" aria-label="Vyhľadávanie profilov"></label>
-				<select class="sort-select" aria-label="Zoradenie profilov"><option>Zoradiť: Odporúčané</option><option>Zoradiť: Najnovšie</option><option>Zoradiť: Najlepšie hodnotené</option></select>
+				<label class="matching-search" for="profile-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="5.5"></circle><path d="m16 16 4 4"></path></svg><input id="profile-search" type="search" placeholder="Vyhľadávanie podľa mena alebo zručnosti..." aria-label="Vyhľadávanie profilov"></label>
+				<select class="sort-select" aria-label="Zoradenie profilov">
+					<option value="recommended">Zoradiť: Odporúčané</option>
+					<option value="newest">Zoradiť: Najnovšie</option>
+					<option value="az">Zoradiť: Podľa mena (A–Z)</option>
+				</select>
 			</div>
 
 			<div class="matching-layout">
 				<aside class="filter-panel" aria-label="Filtrovanie profilov">
-					<div class="filter-title"><span>⚱ Filtrovanie</span><button class="filter-reset" type="reset">Vyčistiť</button></div>
+					<div class="filter-title">
+						<span style="display:inline-flex; align-items:center; gap:6px;">
+							<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+							Filtrovanie
+						</span>
+						<button class="filter-reset" type="reset">Vyčistiť</button>
+					</div>
 					<fieldset class="filter-group"><h2>KATEGÓRIE</h2><label class="filter-option"><input type="checkbox" checked> Všetky zručnosti <em>3</em></label><label class="filter-option"><input type="checkbox"> Technológie <em>2</em></label><label class="filter-option"><input type="checkbox"> Dizajn <em>1</em></label></fieldset>
-					<fieldset class="filter-group"><h2>ÚROVEŇ <span>Všetky</span></h2><div class="level-range"></div><div class="level-labels"><span>Začiatočník</span><span>Expert</span></div></fieldset>
+					<fieldset class="filter-group">
+						<h2>ÚROVEŇ <span id="level-badge">Všetky</span></h2>
+						<input type="range" id="level-slider" class="level-range-input" min="0" max="3" step="1" value="0" aria-label="Filtrovať podľa úrovne">
+						<div class="level-labels"><span>Všetky</span><span>Zač.</span><span>Pokr.</span><span>Expert</span></div>
+					</fieldset>
 				</aside>
 
 				<section class="profiles" aria-labelledby="recommended-title">
 					<div class="profiles-heading"><div><h2 id="recommended-title">Odporúčané pre vás</h2><p>Ľudia s podobnými záujmami a doplňujúcimi sa zručnosťami</p></div><span class="verified">✓ Overené profily</span></div>
 					<div class="profile-grid matching-grid">
-						<article class="profile-card" data-name="Jakub" data-skills="IT AI Programovanie" data-profile-id="jakub"><div class="profile-head"><div class="avatar-circle-wrap"><img src="img/jakub.png" class="hub-avatar" alt="Jakub"></div></div><div class="hub-profile-details"><div class="profile-name"><strong>Jakub</strong><span>Študent IT &amp; AI</span></div><span class="category">TECHNOLÓGIE</span></div><p class="hub-bio">Zaujímam sa o programovanie a AI. Hľadám praktické skúsenosti a výmenu znalostí.</p><div class="skill-tags hub-tags"><span class="skill-tag">📍 Bratislava</span><span class="skill-tag">💻 Programovanie</span><span class="skill-tag">🤖 AI</span></div><a class="exchange-button" href="profil-jakub.html">Zobraziť profil →</a></article>
-						<article class="profile-card" data-name="Timea" data-skills="IT Web development Siete Programovanie" data-profile-id="timea"><div class="profile-head"><div class="avatar-circle-wrap"><img src="img/timea.png" class="hub-avatar" alt="Timea"></div></div><div class="hub-profile-details"><div class="profile-name"><strong>Timea</strong><span>Študentka IT</span></div><span class="category">TECHNOLÓGIE</span></div><p class="hub-bio">Venujem sa programovaniu, web developmentu a sieťam. Chcem svoje znalosti viac využiť v praxi.</p><div class="skill-tags hub-tags"><span class="skill-tag">📍 Bratislava</span><span class="skill-tag">🌐 Web development</span><span class="skill-tag">🔌 Siete</span></div><a class="exchange-button" href="profil-timea.html">Zobraziť profil →</a></article>
-						<article class="profile-card" data-name="Petr" data-skills="UX UI Dizajn Weby Programovanie" data-profile-id="petr"><div class="profile-head"><div class="avatar-circle-wrap"><img src="img/petr.png" class="hub-avatar" alt="Petr"></div></div><div class="hub-profile-details"><div class="profile-name"><strong>Petr</strong><span>Študent / UX &amp; UI dizajnér</span></div><span class="category">DIZAJN</span></div><p class="hub-bio">Venujem sa UX/UI dizajnu, webom a programovaniu. Chcem sa učiť od ľudí z praxe.</p><div class="skill-tags hub-tags"><span class="skill-tag">📍 Slovensko</span><span class="skill-tag">🎨 UX/UI dizajn</span><span class="skill-tag">💻 Weby</span></div><a class="exchange-button" href="profil-petr.html">Zobraziť profil →</a></article>
+						<article class="profile-card" data-name="Jakub" data-skills="IT AI Programovanie" data-profile-id="jakub" data-level="3"><div class="profile-head"><div class="avatar-circle-wrap"><img src="img/jakub.png" class="hub-avatar" alt=""></div></div><div class="hub-profile-details"><div class="profile-name"><strong>Jakub</strong><span>Študent IT &amp; AI</span></div><span class="category">TECHNOLÓGIE</span></div><p class="hub-bio">Zaujímam sa o programovanie a AI. Hľadám praktické skúsenosti a výmenu znalostí.</p><div class="skill-tags hub-tags"><span class="skill-tag">Bratislava</span><span class="skill-tag">Programovanie</span><span class="skill-tag">AI</span></div><a class="exchange-button" href="profil-jakub.html">Zobraziť profil →</a></article>
+						<article class="profile-card" data-name="Timea" data-skills="IT Web development Siete Programovanie" data-profile-id="timea" data-level="2"><div class="profile-head"><div class="avatar-circle-wrap"><img src="img/timea.png" class="hub-avatar" alt=""></div></div><div class="hub-profile-details"><div class="profile-name"><strong>Timea</strong><span>Študentka IT</span></div><span class="category">TECHNOLÓGIE</span></div><p class="hub-bio">Venujem sa programovaniu, web developmentu a sieťam. Chcem svoje znalosti viac využiť v praxi.</p><div class="skill-tags hub-tags"><span class="skill-tag">Bratislava</span><span class="skill-tag">Web development</span><span class="skill-tag">Siete</span></div><a class="exchange-button" href="profil-timea.html">Zobraziť profil →</a></article>
+						<article class="profile-card" data-name="Petr" data-skills="UX UI Dizajn Weby Programovanie" data-profile-id="petr" data-level="1"><div class="profile-head"><div class="avatar-circle-wrap"><img src="img/petr.png" class="hub-avatar" alt=""></div></div><div class="hub-profile-details"><div class="profile-name"><strong>Petr</strong><span>Študent / UX &amp; UI dizajnér</span></div><span class="category">DIZAJN</span></div><p class="hub-bio">Venujem sa UX/UI dizajnu, webom a programovaniu. Chcem sa učiť od ľudí z praxe.</p><div class="skill-tags hub-tags"><span class="skill-tag">Slovensko</span><span class="skill-tag">UX/UI dizajn</span><span class="skill-tag">Weby</span></div><a class="exchange-button" href="profil-petr.html">Zobraziť profil →</a></article>
 					</div>
 				</section>
 			</div>
 		</div>
 	</main>
 
-	<footer class="matching-footer"><div class="matching-footer-inner container"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a><div class="footer-links"><a href="index.html">Home</a><a href="#kontakt">Kontakt</a><a href="#pravidla">Pravidlá</a></div></div></footer>
+	<footer class="matching-footer"><div class="matching-footer-inner container"><a class="brand" href="dashboard.html"><span class="brand-mark" aria-hidden="true"><span></span><span></span></span><span>Skill<span>Match</span></span></a><div class="footer-links"><a href="dashboard.html">Home</a><a href="dashboard.html#kontakt">Kontakt</a><a href="chat.html">Chat</a></div></div></footer>
 	<div class="toast" role="status" aria-live="polite"></div>
 	<script src="script.js"></script>
 </body>
