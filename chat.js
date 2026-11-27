@@ -86,10 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
     return chatHistory[personaId];
   }
 
-  function clearChatHistory() {
-    chatHistory = {};
-    localStorage.removeItem(STORAGE_HISTORY_KEY);
-  }
+  // Очищення історії чату при виході з вікна діалогу або сторінки
+  //function clearChatHistory() {
+  //  chatHistory = {};
+  //  localStorage.removeItem(STORAGE_HISTORY_KEY);
+  //}
 
   function renderSidebar() {
     if (!chatListEl) return;
@@ -184,7 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
     headerActions.appendChild(clearBtn);
   }
 
-  window.addEventListener('pagehide', clearChatHistory);
+  // Автоматичне очищення історії при переході на іншу сторінку
+  // window.addEventListener('pagehide', clearChatHistory);
 
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
